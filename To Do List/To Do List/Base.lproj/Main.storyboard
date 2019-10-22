@@ -92,61 +92,80 @@
                             </button>
                             <connections>
                                 <action selector="addToDoDetailButton:" destination="1iU-i0-v3G" id="uj2-Df-rNn"/>
-                                <segue destination="OFE-BK-I69" kind="show" identifier="addToDoDetail" id="gU2-5b-Hci"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="OFE-BK-I69" kind="presentation" identifier="editToDo" id="sqI-At-ikm"/>
+                        <outlet property="tableViewOutlet" destination="89k-Lk-OMi" id="ezX-3J-Rsi"/>
+                        <segue destination="OFE-BK-I69" kind="show" identifier="toDoDetail" id="gyZ-pK-TtN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dZ0-IW-Dez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="261" y="-128"/>
         </scene>
-        <!--Add To Do Detail View Controller-->
+        <!--Add New ToDO-->
         <scene sceneID="AOl-hO-S8E">
             <objects>
                 <viewController id="OFE-BK-I69" customClass="AddToDoDetailViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k5t-aC-C2w">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add New To Do Detail " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab3-Y8-h6J">
-                                <rect key="frame" x="20" y="20" width="374" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaS-gk-dLG">
-                                <rect key="frame" x="20" y="772" width="374" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CaS-gk-dLG">
+                                <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="P7m-AC-29L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <state key="normal" title="SAVE">
+                                    <color key="titleColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="saveDetailButton:" destination="OFE-BK-I69" eventType="touchUpInside" id="Nph-gP-XXh"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Detail" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uyz-mc-zIi">
-                                <rect key="frame" x="20" y="88" width="374" height="676"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Enter ToDo Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XTZ-YF-YLb">
+                                <rect key="frame" x="20" y="122" width="374" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="New TODO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kbo-cd-SYN">
+                                <rect key="frame" x="20" y="236" width="374" height="510"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="510" id="XnR-Zp-nY0"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CaS-gk-dLG" firstAttribute="trailing" secondItem="rd2-gK-GPc" secondAttribute="trailing" id="3WI-cE-CSz"/>
+                            <constraint firstItem="kbo-cd-SYN" firstAttribute="trailing" secondItem="XTZ-YF-YLb" secondAttribute="trailing" id="3xs-w1-liS"/>
+                            <constraint firstItem="XTZ-YF-YLb" firstAttribute="top" secondItem="rd2-gK-GPc" secondAttribute="top" constant="34" id="HPS-Dr-XLF"/>
+                            <constraint firstItem="XTZ-YF-YLb" firstAttribute="leading" secondItem="rd2-gK-GPc" secondAttribute="leading" constant="20" id="JHI-Td-hVT"/>
+                            <constraint firstItem="CaS-gk-dLG" firstAttribute="top" secondItem="kbo-cd-SYN" secondAttribute="bottom" constant="80" id="ND8-Cs-Wqh"/>
+                            <constraint firstItem="kbo-cd-SYN" firstAttribute="top" secondItem="XTZ-YF-YLb" secondAttribute="bottom" constant="54" id="Qdb-6b-wR1"/>
+                            <constraint firstItem="kbo-cd-SYN" firstAttribute="leading" secondItem="XTZ-YF-YLb" secondAttribute="leading" id="S6O-WT-Ijq"/>
+                            <constraint firstAttribute="bottom" secondItem="CaS-gk-dLG" secondAttribute="bottom" id="gqu-3M-TgC"/>
+                            <constraint firstItem="CaS-gk-dLG" firstAttribute="leading" secondItem="rd2-gK-GPc" secondAttribute="leading" id="hh2-Xv-Cdo"/>
+                            <constraint firstItem="rd2-gK-GPc" firstAttribute="trailing" secondItem="XTZ-YF-YLb" secondAttribute="trailing" constant="20" id="qec-IU-DZp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rd2-gK-GPc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8QO-SC-Fri"/>
+                    <navigationItem key="navigationItem" title="Add New ToDO" id="8QO-SC-Fri"/>
                     <connections>
-                        <outlet property="toDoDetailTextField" destination="uyz-mc-zIi" id="1t3-MJ-OsS"/>
+                        <outlet property="tfToDoTitleOutlet" destination="XTZ-YF-YLb" id="o3J-iT-9B4"/>
+                        <outlet property="tvToDoDescriptionOutlet" destination="kbo-cd-SYN" id="Xqa-7P-Sot"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZVf-cK-e5u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1113" y="-40"/>
+            <point key="canvasLocation" x="1111.5942028985507" y="-40.178571428571423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m9E-aq-heY">
@@ -171,7 +190,4 @@
     <resources>
         <image name="logo" width="320" height="132"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="sqI-At-ikm"/>
-    </inferredMetricsTieBreakers>
 </document>

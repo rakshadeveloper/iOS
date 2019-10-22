@@ -16,10 +16,11 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //    }
     var listArray = ["iOS","Android"]
     var listDetailArray = ["Abhishek","Sharma"]
-
+    var isNewItem = false
+    @IBOutlet weak var tableViewOutlet: UITableView!
     @IBAction func unwindWithSegue(_ segue: AddToDoDetailViewController) {
-
-        performSegue(withIdentifier: "addToDoDetail", sender: self)
+        isNewItem =     true
+        performSegue(withIdentifier: "toDoDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,11 +35,23 @@ class ToDoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
   
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        self.performSegue(withIdentifier: "editToDo", sender: nil)
-        return indexPath
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       isNewItem =     false
+
+        performSegue(withIdentifier: "toDoDetail", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(!isNewItem){
+            let detailVC = segue.destination as! AddToDoDetailViewController
+            
+            if let indexPath = tableViewOutlet.indexPathForSelectedRow{
+                let selectedRow = indexPath.row
+                detailVC.titleText  = listArray[selectedRow]
+                detailVC.detailedText  = listDetailArray[selectedRow]
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

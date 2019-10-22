@@ -8,17 +8,26 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
+@available(iOS 13.0, *)
 class AddToDoDetailViewController: UIViewController {
-    @IBOutlet weak var toDoDetailTextField: UITextView!
+    
+    @IBOutlet weak var tfToDoTitleOutlet: UITextField!
+    var detailedText = String()
+    var titleText = String()
+    
+    
+    @IBOutlet weak var tvToDoDescriptionOutlet: UITextView!
     @IBAction func saveDetailButton(_ sender: Any) {
-//        listArray.append(toDoDetailTextField.text)
-//         toDoDetailTextField.resignFirstResponder()
-
+//        detailedArray = toDoDetaillabel.text!
+            
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tfToDoTitleOutlet.text = titleText
+        self.tvToDoDescriptionOutlet.text = detailedText
+//        toDoDetaillabel.text = "\((detailedArray?.listArray)!) Developer"
         // Do any additional setup after loading the view.
     }
     
