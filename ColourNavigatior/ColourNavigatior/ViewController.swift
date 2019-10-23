@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    let colorDic: [String: UIColor] = ["Blue": UIColor.blue, "Green": UIColor.green, "Red": UIColor.red]
+    let colorDic: [String: UIColor] = ["Blue": UIColor.blue, "Green": UIColor.green, "Red": UIColor.red, "Orange": UIColor.orange, "Yellow": UIColor.yellow]
 
 
     
@@ -38,16 +38,22 @@ class ViewController: UIViewController {
     
     
     @IBAction func btGreenAction(_ sender: Any) {
-        //        self.performSegue(withIdentifier: "colour", sender: nil)
-        
+        if let buttonTitle = (sender as? UIButton)?.titleLabel?.text {
+        titleOfButton = buttonTitle
+        }
+        performSegue(withIdentifier: "colour", sender: self)
     }
     @IBAction func btOrangeAction(_ sender: Any) {
-        //        self.performSegue(withIdentifier: "colour", sender: nil)
-        
+        if let buttonTitle = (sender as? UIButton)?.titleLabel?.text {
+        titleOfButton = buttonTitle
+        }
+        performSegue(withIdentifier: "colour", sender: self)
     }
     @IBAction func btYellowAction(_ sender: Any) {
-        //        self.performSegue(withIdentifier: "colour", sender: nil)
-        
+        if let buttonTitle = (sender as? UIButton)?.titleLabel?.text {
+        titleOfButton = buttonTitle
+        }
+        performSegue(withIdentifier: "colour", sender: self)
     }
     
     override func viewDidLoad() {
