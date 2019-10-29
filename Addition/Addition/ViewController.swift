@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var total: Int = 1
     @IBOutlet weak var tfNunber1Outlet: UITextField!
     @IBOutlet weak var tfNumber2Outlet: UITextField!
     @IBOutlet weak var lbTotalOutlet: UILabel!
@@ -43,11 +42,12 @@ class ViewController: UIViewController {
         var number1: Int? = Int (tfNunber1Outlet.text!)
         var number2: Int? = Int (tfNumber2Outlet.text!)
         if number2 == 0 {
-            lbTotalOutlet.text = "\(total)"
+            lbTotalOutlet.text = "1"
             
         }
         else{
-            for i in 1...Int(number2!) {
+            var total: Int = 1
+            for _ in 1...Int(number2!) {
                 total *= Int (number1!)
             }
             lbTotalOutlet.text = "\(total)"
