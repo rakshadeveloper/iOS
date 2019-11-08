@@ -29,6 +29,10 @@ class GameStartViewController: UIViewController {
     var totalTime = 60
     
     @IBAction func btPurpleButton(_ sender: Any) {
+        if viewOutlet.backgroundColor == UIColor.white {
+            
+        }
+        else {
         if UIColor.purple == viewOutlet.backgroundColor {
             score += 1
             lbScoreOutlet.text = "\(score)"
@@ -38,8 +42,13 @@ class GameStartViewController: UIViewController {
             score -= 1
             lbScoreOutlet.text = "\(score)"
         }
+        }
     }
     @IBAction func btBlackButton(_ sender: Any) {
+        if viewOutlet.backgroundColor == UIColor.white {
+            
+        }
+        else {
         if UIColor.black == viewOutlet.backgroundColor {
             score += 1
             lbScoreOutlet.text = "\(score)"
@@ -49,8 +58,13 @@ class GameStartViewController: UIViewController {
             score -= 1
             lbScoreOutlet.text = "\(score)"
         }
+        }
     }
     @IBAction func btBlueButton(_ sender: Any) {
+        if viewOutlet.backgroundColor == UIColor.white {
+            
+        }
+        else {
         if UIColor.blue == viewOutlet.backgroundColor {
             score += 1
             lbScoreOutlet.text = "\(score)"
@@ -60,8 +74,13 @@ class GameStartViewController: UIViewController {
             score -= 1
             lbScoreOutlet.text = "\(score)"
         }
+        }
     }
     @IBAction func btYellowButton(_ sender: Any) {
+        if viewOutlet.backgroundColor == UIColor.white {
+            
+        }
+        else {
         if UIColor.yellow == viewOutlet.backgroundColor {
             score += 1
             lbScoreOutlet.text = "\(score)"
@@ -71,8 +90,13 @@ class GameStartViewController: UIViewController {
             score -= 1
             lbScoreOutlet.text = "\(score)"
         }
+        }
     }
     @IBAction func btGreenButton(_ sender: Any) {
+        if viewOutlet.backgroundColor == UIColor.white {
+            
+        }
+        else {
         if UIColor.green == viewOutlet.backgroundColor {
             score += 1
             lbScoreOutlet.text = "\(score)"
@@ -82,8 +106,13 @@ class GameStartViewController: UIViewController {
             score -= 1
             lbScoreOutlet.text = "\(score)"
         }
+        }
     }
     @IBAction func btOrangeButton(_ sender: Any) {
+        if viewOutlet.backgroundColor == UIColor.white {
+            
+        }
+        else {
         if UIColor.orange == viewOutlet.backgroundColor {
             score += 1
             lbScoreOutlet.text = "\(score)"
@@ -93,8 +122,13 @@ class GameStartViewController: UIViewController {
             score -= 1
             lbScoreOutlet.text = "\(score)"
         }
+        }
     }
     @IBAction func btBrownButton(_ sender: Any) {
+        if viewOutlet.backgroundColor == UIColor.white {
+            
+        }
+        else {
         if UIColor.brown == viewOutlet.backgroundColor {
             score += 1
             lbScoreOutlet.text = "\(score)"
@@ -104,8 +138,13 @@ class GameStartViewController: UIViewController {
             score -= 1
             lbScoreOutlet.text = "\(score)"
         }
+        }
     }
     @IBAction func btRedButton(_ sender: Any) {
+        if viewOutlet.backgroundColor == UIColor.white {
+            
+        }
+        else {
         if UIColor.red == viewOutlet.backgroundColor {
             score += 1
             lbScoreOutlet.text = "\(score)"
@@ -115,6 +154,7 @@ class GameStartViewController: UIViewController {
             score -= 1
             lbScoreOutlet.text = "\(score)"
         }
+    }
     }
     func buttonNotPressed() {
         if isPressed == false {
@@ -142,8 +182,11 @@ class GameStartViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { timer in
             let randomNumber = Int.random(in: 1...60)
             if randomNumber == 60 {
-                timer.invalidate()
                 self.viewOutlet.backgroundColor = UIColor.white
+                timer.invalidate()
+//                DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+//                    self.viewOutlet.backgroundColor = UIColor.white
+//                })
             }
             else {
                 self.updateTime()
@@ -166,6 +209,7 @@ class GameStartViewController: UIViewController {
     }
     func endTimer() {
         timer.invalidate()
+        self.viewOutlet.backgroundColor = UIColor.white
     }
     func timeFormatted(_ totalSeconds: Int) -> String {
         let seconds: Int = totalSeconds % 60

@@ -13,10 +13,6 @@ class ViewController: UIViewController {
     
     
     let colorDic: [String: UIColor] = ["Blue": UIColor.blue, "Green": UIColor.green, "Red": UIColor.red, "Orange": UIColor.orange, "Yellow": UIColor.yellow]
-
-
-    
-    
     var titleOfButton = String()
     @IBAction func btBlueAction(_ sender: Any) {
         if let buttonTitle = (sender as? UIButton)?.titleLabel?.text {
