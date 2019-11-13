@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25205197237423B70093807F /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 25205196237423B70093807F /* logo.png */; };
 		2567EAF823683B6A00D1E8FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567EAF723683B6A00D1E8FB /* AppDelegate.swift */; };
 		2567EAFA23683B6A00D1E8FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567EAF923683B6A00D1E8FB /* SceneDelegate.swift */; };
 		2567EAFC23683B6A00D1E8FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2567EAFB23683B6A00D1E8FB /* ViewController.swift */; };
@@ -36,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		25205196237423B70093807F /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../../../../../Downloads/logo.png; sourceTree = "<group>"; };
 		2567EAF423683B6900D1E8FB /* FlashLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2567EAF723683B6A00D1E8FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2567EAF923683B6A00D1E8FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				2567EB0023683B6B00D1E8FB /* Assets.xcassets */,
 				2567EB0223683B6B00D1E8FB /* LaunchScreen.storyboard */,
 				2567EB0523683B6B00D1E8FB /* Info.plist */,
-				25205196237423B70093807F /* logo.png */,
 			);
 			path = FlashLight;
 			sourceTree = "<group>";
@@ -235,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25205197237423B70093807F /* logo.png in Resources */,
 				2567EB0423683B6B00D1E8FB /* LaunchScreen.storyboard in Resources */,
 				2567EB0123683B6B00D1E8FB /* Assets.xcassets in Resources */,
 				2567EAFF23683B6A00D1E8FB /* Main.storyboard in Resources */,

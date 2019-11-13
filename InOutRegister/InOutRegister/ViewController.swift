@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     }
     func GetCurrentDateTime() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMMM, dd, yyyy  HH:MM"
+        formatter.dateFormat = "E, d MMM yyyy HH:mm:ss"
         let currentDate = formatter.string(from: Date())
         return currentDate
     }

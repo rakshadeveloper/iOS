@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2520519B237426B00093807F /* icons8-game-controller-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2520519A237426B00093807F /* icons8-game-controller-64.png */; };
 		255DC2972371636500B6612A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255DC2962371636500B6612A /* AppDelegate.swift */; };
 		255DC2992371636500B6612A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255DC2982371636500B6612A /* ViewController.swift */; };
 		255DC29C2371636500B6612A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 255DC29A2371636500B6612A /* Main.storyboard */; };
@@ -38,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2520519A237426B00093807F /* icons8-game-controller-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-game-controller-64.png"; path = "../../../../../Downloads/icons8-game-controller-64.png"; sourceTree = "<group>"; };
 		255DC2932371636500B6612A /* ColourGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColourGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		255DC2962371636500B6612A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		255DC2982371636500B6612A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				255DC29D2371636800B6612A /* Assets.xcassets */,
 				255DC29F2371636800B6612A /* LaunchScreen.storyboard */,
 				255DC2A22371636800B6612A /* Info.plist */,
-				2520519A237426B00093807F /* icons8-game-controller-64.png */,
 			);
 			path = ColourGame;
 			sourceTree = "<group>";
@@ -240,7 +237,6 @@
 				255DC2A12371636800B6612A /* LaunchScreen.storyboard in Resources */,
 				255DC29E2371636800B6612A /* Assets.xcassets in Resources */,
 				255DC29C2371636500B6612A /* Main.storyboard in Resources */,
-				2520519B237426B00093807F /* icons8-game-controller-64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

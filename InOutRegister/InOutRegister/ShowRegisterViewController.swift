@@ -13,7 +13,14 @@ class ShowRegisterViewController: UIViewController,  UITableViewDataSource, UITa
     var inTimeShow:[String] = []
     var outTimeShow:[String] = []
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+      var sectionCount = 0
+        if(inTimeShow.count != 0){
+            sectionCount += 1
+        }
+        if(outTimeShow.count != 0){
+            sectionCount += 1
+        }
+        return sectionCount
     }
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let a = section
@@ -42,14 +49,10 @@ class ShowRegisterViewController: UIViewController,  UITableViewDataSource, UITa
         cell.textLabel?.text = "\(inTimeShow[indexPath.row])"
         return cell
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(inTimeShow)
         print(outTimeShow)
-//        let defaults = UserDefaults.standard
-//        defaults.set(inTimeShow, forKey: "In")
-//        defaults.set(outTimeShow, forKey: "Out")
     }
     
 }
