@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AQO-7B-bQq">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -15,45 +15,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vo4-hq-zVG">
-                                <rect key="frame" x="20" y="394" width="374" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vo4-hq-zVG">
+                                <rect key="frame" x="30" y="284" width="354" height="132"/>
                                 <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                <state key="normal" title="Out"/>
+                                <state key="normal" title="Out">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="btOutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6xu-G5-JQz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUU-b0-JzG">
-                                <rect key="frame" x="20" y="725" width="374" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <state key="normal" title="Show Register"/>
-                                <connections>
-                                    <action selector="btShowRegisterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q8M-gp-rng"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsm-Cn-oeT">
-                                <rect key="frame" x="20" y="618" width="374" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kU3-uD-SEA">
-                                <rect key="frame" x="20" y="132" width="374" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kU3-uD-SEA">
+                                <rect key="frame" x="30" y="121" width="354" height="132"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
-                                <state key="normal" title="In"/>
+                                <state key="normal" title="In">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="btInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ffG-r7-bwx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUU-b0-JzG">
+                                <rect key="frame" x="0.0" y="843" width="414" height="53"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Show Register">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btShowRegisterButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q8M-gp-rng"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsm-Cn-oeT">
+                                <rect key="frame" x="30" y="430" width="354" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vo4-hq-zVG" secondAttribute="trailing" constant="30" id="J0R-3l-Fw0"/>
+                            <constraint firstItem="kU3-uD-SEA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="K1g-tJ-j1H"/>
+                            <constraint firstItem="AUU-b0-JzG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lhe-qf-x4l"/>
+                            <constraint firstItem="vsm-Cn-oeT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Rwa-QJ-YB0"/>
+                            <constraint firstItem="Vo4-hq-zVG" firstAttribute="top" secondItem="kU3-uD-SEA" secondAttribute="bottom" constant="31" id="S8s-MU-J1n"/>
+                            <constraint firstItem="AUU-b0-JzG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X3f-nS-Ta7"/>
+                            <constraint firstItem="kU3-uD-SEA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="33" id="ea7-TQ-lkr"/>
+                            <constraint firstAttribute="bottom" secondItem="AUU-b0-JzG" secondAttribute="bottom" id="gl0-oU-BNg"/>
+                            <constraint firstItem="vsm-Cn-oeT" firstAttribute="top" secondItem="Vo4-hq-zVG" secondAttribute="bottom" constant="14" id="hhx-uE-NpN"/>
+                            <constraint firstItem="Vo4-hq-zVG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="i8e-46-SOe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vsm-Cn-oeT" secondAttribute="trailing" constant="30" id="ukz-iD-iO4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kU3-uD-SEA" secondAttribute="trailing" constant="30" id="zZt-C9-V3P"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="In Out Entry" id="Oqc-8g-rlH"/>
@@ -78,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GMO-YZ-vGc">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="registerCell" rowHeight="90" id="W78-Ya-No0">
@@ -97,10 +113,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="GMO-YZ-vGc" firstAttribute="leading" secondItem="dj4-Pg-FI2" secondAttribute="leading" id="04E-fz-tYF"/>
-                            <constraint firstItem="dj4-Pg-FI2" firstAttribute="trailing" secondItem="GMO-YZ-vGc" secondAttribute="trailing" id="1yE-bU-f4g"/>
-                            <constraint firstItem="GMO-YZ-vGc" firstAttribute="bottom" secondItem="dj4-Pg-FI2" secondAttribute="bottom" id="9go-dw-wCc"/>
-                            <constraint firstItem="GMO-YZ-vGc" firstAttribute="top" secondItem="dj4-Pg-FI2" secondAttribute="top" id="gog-ub-GcG"/>
+                            <constraint firstAttribute="bottom" secondItem="GMO-YZ-vGc" secondAttribute="bottom" id="2Hw-bQ-NvR"/>
+                            <constraint firstItem="GMO-YZ-vGc" firstAttribute="trailing" secondItem="dj4-Pg-FI2" secondAttribute="trailing" id="5zA-VG-Fq1"/>
+                            <constraint firstItem="GMO-YZ-vGc" firstAttribute="centerX" secondItem="oNP-Ch-dXi" secondAttribute="centerX" id="GvA-di-Q2j"/>
+                            <constraint firstItem="GMO-YZ-vGc" firstAttribute="centerY" secondItem="oNP-Ch-dXi" secondAttribute="centerY" id="X64-n2-GDZ"/>
+                            <constraint firstItem="GMO-YZ-vGc" firstAttribute="top" secondItem="oNP-Ch-dXi" secondAttribute="top" id="ZHz-gK-YJb"/>
+                            <constraint firstItem="GMO-YZ-vGc" firstAttribute="leading" secondItem="dj4-Pg-FI2" secondAttribute="leading" id="lCk-Vu-JSR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dj4-Pg-FI2"/>
                     </view>
@@ -116,7 +134,7 @@
         <!--Navigation Controller-->
         <scene sceneID="QRg-js-mMe">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AQO-7B-bQq" sceneMemberID="viewController">
+                <navigationController id="AQO-7B-bQq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U4y-1t-erF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

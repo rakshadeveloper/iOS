@@ -13,7 +13,7 @@ class ShowRegisterViewController: UIViewController,  UITableViewDataSource, UITa
     var inTimeShow:[String] = []
     var outTimeShow:[String] = []
     func numberOfSections(in tableView: UITableView) -> Int {
-      var sectionCount = 0
+        var sectionCount = 0
         if(inTimeShow.count != 0){
             sectionCount += 1
         }
