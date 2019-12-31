@@ -8,10 +8,29 @@
 
 import UIKit
 import Contacts
+import Foundation
+import _SwiftUIKitOverlayShims
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return NameWithNumber.count
+    }
     
-    @IBOutlet weak var lbSuggestedNameOutlet: UILabel!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (tfNumberOutlet!.text != nil) {
+            for tf in NameWithNumber {
+                tfNumberOutlet.text = NameWithNumber[indexPath]
+            }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        
+        cell.textLabel?.text = NameWithNumber[indexPath.row]
+        
+    }
+        return cell
+    }
+    
+    var NameWithNumber: [String] = []
+    @IBOutlet weak var tfNumberOutlet: UITextField!
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
@@ -22,14 +41,69 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn8: UIButton!
     @IBOutlet weak var btn9: UIButton!
     @IBOutlet weak var btn0: UIButton!
-    @IBOutlet weak var btnStra: UIButton!
+    @IBOutlet weak var btnStar: UIButton!
     @IBOutlet weak var btnHash: UIButton!
     @IBOutlet weak var btnCall: UIButton!
     
     
+    
+    open var minimumPressDuration: TimeInterval = 0.1
+    
+    @IBAction func btnLongPressed(_ gestureRecognizer: UILongPressGestureRecognizer) {
+        
+        if gestureRecognizer.state == .began
+        {
+            if minimumPressDuration > TimeInterval(0.1) {
+                do {
+                    print("Long Pressed")
+                    tfNumberOutlet.text! += "+"
+                }
+            }
+            else {
+                print("Short Pressed")
+                tfNumberOutlet.text! += "0"
+            }
+        }
+    }
+    
     @IBAction func btnAction(_ sender: Any) {
         print((sender as AnyObject).tag!)
-        
+        if (sender as AnyObject).tag == 1 {
+            tfNumberOutlet.text! += "1"
+        }
+        if (sender as AnyObject).tag == 2 {
+            tfNumberOutlet.text! += "2"
+        }
+        if (sender as AnyObject).tag == 3 {
+            tfNumberOutlet.text! += "3"
+        }
+        if (sender as AnyObject).tag == 4 {
+            tfNumberOutlet.text! += "4"
+        }
+        if (sender as AnyObject).tag == 5 {
+            tfNumberOutlet.text! += "5"
+        }
+        if (sender as AnyObject).tag == 6 {
+            tfNumberOutlet.text! += "6"
+        }
+        if (sender as AnyObject).tag == 7 {
+            tfNumberOutlet.text! += "7"
+        }
+        if (sender as AnyObject).tag == 8 {
+            tfNumberOutlet.text! += "8"
+        }
+        if (sender as AnyObject).tag == 9 {
+            tfNumberOutlet.text! += "9"
+        }
+        if (sender as AnyObject).tag == 0 {
+            tfNumberOutlet.text! += "+"
+        }
+        if (sender as AnyObject).tag == 11 {
+            tfNumberOutlet.text! += "*"
+        }
+        if (sender as AnyObject).tag == 12 {
+            tfNumberOutlet.text! += "#"
+        }
     }
     
     @IBAction func btnCallAction(_ sender: Any) {
@@ -51,9 +125,13 @@ class ViewController: UIViewController {
                 let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
                 do {
                     try store.enumerateContacts(with: request, usingBlock:  { (contact, stopPointerIfYouWantToStopEnumeration) in
-                        print(contact.givenName)
-                        print(contact.familyName)
-                        print(contact.phoneNumbers.first?.value.stringValue ?? "")
+                        
+                        self.NameWithNumber.append(contact.givenName)
+                        self.NameWithNumber.append(contact.phoneNumbers.first?.value.stringValue ?? "")
+                        //                        print(contact.givenName)
+                        //                        print(contact.familyName)
+                        //                        print(contact.phoneNumbers.first?.value.stringValue ?? "")
+                        print(self.NameWithNumber)
                     })
                 } catch let err {
                     print("Fail to enumrt", err)
@@ -79,7 +157,7 @@ class ViewController: UIViewController {
         btn8.layer.cornerRadius = btn8.frame.size.width / 2
         btn9.layer.cornerRadius = btn9.frame.size.width / 2
         btn0.layer.cornerRadius = btn0.frame.size.width / 2
-        btnStra.layer.cornerRadius = btnStra.frame.size.width / 2
+        btnStar.layer.cornerRadius = btnStar.frame.size.width / 2
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
         
@@ -87,4 +165,3 @@ class ViewController: UIViewController {
         
     }
 }
-

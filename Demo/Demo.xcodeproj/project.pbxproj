@@ -15,7 +15,6 @@
 		250C0FAF23B9EC0C009BCF93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250C0FAD23B9EC0C009BCF93 /* LaunchScreen.storyboard */; };
 		250C0FBA23B9EC0C009BCF93 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C0FB923B9EC0C009BCF93 /* DemoTests.swift */; };
 		250C0FC523B9EC0C009BCF93 /* DemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C0FC423B9EC0C009BCF93 /* DemoUITests.swift */; };
-		250C0FD323BA548C009BCF93 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 250C0FB023B9EC0C009BCF93 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				250C0FD323BA548C009BCF93 /* Info.plist in Resources */,
 				250C0FAF23B9EC0C009BCF93 /* LaunchScreen.storyboard in Resources */,
 				250C0FAC23B9EC0C009BCF93 /* Assets.xcassets in Resources */,
 				250C0FAA23B9EC06009BCF93 /* Main.storyboard in Resources */,
@@ -436,7 +434,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HR94J6TSB3;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -444,6 +444,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -453,7 +454,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HR94J6TSB3;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,6 +464,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
