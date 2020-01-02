@@ -13,19 +13,16 @@ import Foundation
 import _SwiftUIKitOverlayShims
 import MapKit
 
-class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchBarDelegate  {
+class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchBarDelegate , UISearchResultsUpdating  {
     
-    
-    
-    let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey, CNContactBirthdayKey, CNContactImageDataKey]
-    var txt : String = ""
+//    let tableData = ["One", "Two", "Three","Twenty-One"]
     var filteredTableData = [String]()
     var resultSearchController = UISearchController()
     var tableView = UITableView()
     var Name: [String] = []
     var Number: [String] = []
-    
-    @IBOutlet weak var searchBar: UISearchBar!
+    open var automaticallyShowsSearchResultsController: Bool = true
+
     @IBOutlet weak var btnPressedLong: UIButton!
     @IBOutlet weak var tfNumberOutlet: UITextField!
     @IBOutlet weak var btn1: UIButton!
@@ -55,7 +52,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        if (filteredTableData.count > 0) {
+        if (resultSearchController.isActive) {
             cell.textLabel?.text = filteredTableData[indexPath.row]
             print(filteredTableData[indexPath.row])
             
@@ -70,18 +67,12 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     func updateSearchResults(for searchController: UISearchController) {
         filteredTableData.removeAll(keepingCapacity: false)
-        searchController.searchBar.text = searchBar.text
-        
-        filterContacts(for: searchController.searchBar.text ?? "")
-        
-    }
-    
-    func filterContacts(for searchText: String) {
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchText)
+
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
         let array = (Name as NSArray).filtered(using: searchPredicate)
         filteredTableData = array as! [String]
-        print(array)
-        tableView.reloadData()
+
+        self.tableView.reloadData()
     }
     
     open var minimumPressDuration: TimeInterval = 0.1
@@ -186,7 +177,20 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
         
-        //        resultSearchController.searchResultsUpdater = self as? UISsearchResultsUpdating
+//        resultSearchController.searchResultsUpdater = self as! UISearchResultsUpdating
+        resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+
+            tableView.tableHeaderView = controller.searchBar
+
+            return controller
+        })()
+
+        // Reload the table
+        tableView.reloadData()
         
     }
 }

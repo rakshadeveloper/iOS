@@ -420,7 +420,6 @@
                         <outlet property="btnHash" destination="MUh-s2-gaZ" id="2RZ-0F-iQb"/>
                         <outlet property="btnPressedLong" destination="Qcz-el-cXa" id="pO5-vy-7sI"/>
                         <outlet property="btnStar" destination="JMx-Np-cLY" id="ZI6-4m-eLd"/>
-                        <outlet property="searchBar" destination="ChC-mh-512" id="RDw-eI-QoI"/>
                         <outlet property="tfNumberOutlet" destination="4xE-El-LG3" id="03R-VX-bFW"/>
                     </connections>
                 </viewController>
