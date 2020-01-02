@@ -322,6 +322,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ChC-mh-512">
+                                <rect key="frame" x="20" y="43" width="374" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -332,16 +336,19 @@
                             <constraint firstItem="yMq-Ju-MT5" firstAttribute="leading" secondItem="T0g-NC-LBp" secondAttribute="trailing" constant="60" id="2E7-aY-57Q"/>
                             <constraint firstItem="Qcz-el-cXa" firstAttribute="leading" secondItem="JMx-Np-cLY" secondAttribute="trailing" constant="27" id="2ts-8Y-dKk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1UJ-Kd-2SB" secondAttribute="bottom" constant="5" id="41j-JM-ZLL"/>
+                            <constraint firstItem="ChC-mh-512" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5fM-8i-Q26"/>
                             <constraint firstItem="bUU-5C-t06" firstAttribute="leading" secondItem="yiW-1h-pi6" secondAttribute="trailing" constant="61" id="7Oq-iA-JPJ"/>
                             <constraint firstItem="Qcz-el-cXa" firstAttribute="top" secondItem="STO-CQ-fza" secondAttribute="bottom" constant="10" id="7Zf-gP-Klg"/>
                             <constraint firstItem="yiW-1h-pi6" firstAttribute="top" secondItem="W5x-sY-15h" secondAttribute="bottom" constant="26" id="9WD-a6-tW0"/>
                             <constraint firstItem="2Jb-lg-iGZ" firstAttribute="top" secondItem="hEt-O2-EaE" secondAttribute="bottom" constant="25" id="9yB-un-Dil"/>
+                            <constraint firstItem="9hR-Vl-QYM" firstAttribute="top" secondItem="ChC-mh-512" secondAttribute="bottom" constant="10" id="AMM-SQ-kEg"/>
                             <constraint firstItem="W5x-sY-15h" firstAttribute="top" secondItem="T0g-NC-LBp" secondAttribute="bottom" constant="73" id="AMn-OD-6dF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4xE-El-LG3" secondAttribute="trailing" constant="20" id="Bc3-pZ-Hdi"/>
                             <constraint firstItem="eCc-E3-r53" firstAttribute="top" secondItem="2Jb-lg-iGZ" secondAttribute="bottom" constant="73" id="Byw-et-zsj"/>
                             <constraint firstItem="T0g-NC-LBp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="D0s-kt-64p"/>
                             <constraint firstItem="hBL-vQ-4pk" firstAttribute="leading" secondItem="JMx-Np-cLY" secondAttribute="trailing" constant="70" id="DHA-7r-vvM"/>
                             <constraint firstItem="kNN-2r-3KF" firstAttribute="leading" secondItem="yMq-Ju-MT5" secondAttribute="trailing" constant="60" id="DIm-ci-OiA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ChC-mh-512" secondAttribute="trailing" constant="20" id="Dw0-hS-lzQ"/>
                             <constraint firstItem="hEt-O2-EaE" firstAttribute="leading" secondItem="6YF-7p-KZu" secondAttribute="trailing" constant="62" id="Esk-QW-PB8"/>
                             <constraint firstItem="MUh-s2-gaZ" firstAttribute="top" secondItem="Sa1-94-Elo" secondAttribute="bottom" constant="10" id="JOZ-Ca-lqX"/>
                             <constraint firstItem="4J7-1Q-MdR" firstAttribute="top" secondItem="kNN-2r-3KF" secondAttribute="bottom" constant="73" id="LFX-WJ-nWG"/>
@@ -378,6 +385,7 @@
                             <constraint firstItem="1UJ-Kd-2SB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="157" id="jpg-la-hcM"/>
                             <constraint firstItem="2Jb-lg-iGZ" firstAttribute="top" secondItem="kNN-2r-3KF" secondAttribute="bottom" constant="10" id="kHE-rw-VRp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sa1-94-Elo" secondAttribute="trailing" constant="30" id="lMR-74-OtQ"/>
+                            <constraint firstItem="ChC-mh-512" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="43" id="lt4-Mx-fph"/>
                             <constraint firstItem="STO-CQ-fza" firstAttribute="leading" secondItem="yiW-1h-pi6" secondAttribute="trailing" constant="27" id="ly6-QC-FjW"/>
                             <constraint firstItem="4J7-1Q-MdR" firstAttribute="leading" secondItem="4xO-mz-1Uj" secondAttribute="trailing" constant="58" id="mJ3-ht-hSV"/>
                             <constraint firstItem="MUh-s2-gaZ" firstAttribute="leading" secondItem="hBL-vQ-4pk" secondAttribute="trailing" constant="68" id="nnX-Nh-DLA"/>
@@ -410,7 +418,9 @@
                         <outlet property="btn9" destination="Sa1-94-Elo" id="NRO-Mr-lxO"/>
                         <outlet property="btnCall" destination="1UJ-Kd-2SB" id="Y6t-Eg-98w"/>
                         <outlet property="btnHash" destination="MUh-s2-gaZ" id="2RZ-0F-iQb"/>
+                        <outlet property="btnPressedLong" destination="Qcz-el-cXa" id="pO5-vy-7sI"/>
                         <outlet property="btnStar" destination="JMx-Np-cLY" id="ZI6-4m-eLd"/>
+                        <outlet property="searchBar" destination="ChC-mh-512" id="RDw-eI-QoI"/>
                         <outlet property="tfNumberOutlet" destination="4xE-El-LG3" id="03R-VX-bFW"/>
                     </connections>
                 </viewController>

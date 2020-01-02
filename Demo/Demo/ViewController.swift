@@ -7,19 +7,26 @@
 //
 
 import UIKit
+import ContactsUI
 import Contacts
 import Foundation
 import _SwiftUIKitOverlayShims
+import MapKit
 
-class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchResultsUpdating , UISearchBarDelegate {
+class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchBarDelegate  {
     
-    let tableData = ["One","Two","Three","Twenty-One"]
+    
+    
+    let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactEmailAddressesKey, CNContactBirthdayKey, CNContactImageDataKey]
+    var txt : String = ""
     var filteredTableData = [String]()
     var resultSearchController = UISearchController()
     var tableView = UITableView()
     var Name: [String] = []
     var Number: [String] = []
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var btnPressedLong: UIButton!
     @IBOutlet weak var tfNumberOutlet: UITextField!
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
@@ -36,7 +43,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var btnCall: UIButton!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return Name.count
+        //        return Name.count
         if  (resultSearchController.isActive) {
             return filteredTableData.count
         } else {
@@ -45,58 +52,42 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if (tfNumberOutlet!.text != nil) {
-//            for tf in NameWithNumber {
-//                tfNumberOutlet.text = NameWithNumber[indexPath]
-//            }
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-//
-//        cell.textLabel?.text = "\(Name[indexPath.row])   \(Number[indexPath.row])"
         
-//    }
-//        return cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        if (resultSearchController.isActive) {
+        
+        if (filteredTableData.count > 0) {
             cell.textLabel?.text = filteredTableData[indexPath.row]
-
+            print(filteredTableData[indexPath.row])
+            
             return cell
         }
         else {
             cell.textLabel?.text = "\(Name[indexPath.row]) \(Number[indexPath.row])"
-            print("\(Name[indexPath.row]) + \(Number[indexPath.row])")
+            
             return cell
         }
     }
     
     func updateSearchResults(for searchController: UISearchController) {
         filteredTableData.removeAll(keepingCapacity: false)
-
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+        searchController.searchBar.text = searchBar.text
+        
+        filterContacts(for: searchController.searchBar.text ?? "")
+        
+    }
+    
+    func filterContacts(for searchText: String) {
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchText)
         let array = (Name as NSArray).filtered(using: searchPredicate)
         filteredTableData = array as! [String]
-
+        print(array)
         tableView.reloadData()
-        
     }
     
     open var minimumPressDuration: TimeInterval = 0.1
     
-    @IBAction func btnLongPressed(_ gestureRecognizer: UILongPressGestureRecognizer) {
+    @IBAction func btnLongPressed(_ sender: Any) {
         
-        if gestureRecognizer.state == .began
-        {
-            if minimumPressDuration > TimeInterval(0.1) {
-                do {
-                    print("Long Pressed")
-                    tfNumberOutlet.text! += "+"
-                }
-            }
-            else {
-                print("Short Pressed")
-                tfNumberOutlet.text! += "0"
-            }
-        }
     }
     
     @IBAction func btnAction(_ sender: Any) {
@@ -177,6 +168,8 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //        tfNumberOutlet.text! += txt
         fetchContacts ()
         
         btn1.layer.cornerRadius = btn1.frame.size.width / 2
@@ -193,6 +186,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
         
+        //        resultSearchController.searchResultsUpdater = self as? UISsearchResultsUpdating
         
     }
 }
