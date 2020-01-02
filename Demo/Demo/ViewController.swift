@@ -11,25 +11,15 @@ import Contacts
 import Foundation
 import _SwiftUIKitOverlayShims
 
-class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return NameWithNumber.count
-    }
+class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchResultsUpdating , UISearchBarDelegate {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (tfNumberOutlet!.text != nil) {
-            for tf in NameWithNumber {
-                tfNumberOutlet.text = NameWithNumber[indexPath]
-            }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-        
-        cell.textLabel?.text = NameWithNumber[indexPath.row]
-        
-    }
-        return cell
-    }
+    let tableData = ["One","Two","Three","Twenty-One"]
+    var filteredTableData = [String]()
+    var resultSearchController = UISearchController()
+    var tableView = UITableView()
+    var Name: [String] = []
+    var Number: [String] = []
     
-    var NameWithNumber: [String] = []
     @IBOutlet weak var tfNumberOutlet: UITextField!
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
@@ -45,7 +35,50 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var btnHash: UIButton!
     @IBOutlet weak var btnCall: UIButton!
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return Name.count
+        if  (resultSearchController.isActive) {
+            return filteredTableData.count
+        } else {
+            return Name.count
+        }
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if (tfNumberOutlet!.text != nil) {
+//            for tf in NameWithNumber {
+//                tfNumberOutlet.text = NameWithNumber[indexPath]
+//            }
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+//
+//        cell.textLabel?.text = "\(Name[indexPath.row])   \(Number[indexPath.row])"
+        
+//    }
+//        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+
+        if (resultSearchController.isActive) {
+            cell.textLabel?.text = filteredTableData[indexPath.row]
+
+            return cell
+        }
+        else {
+            cell.textLabel?.text = "\(Name[indexPath.row]) \(Number[indexPath.row])"
+            print("\(Name[indexPath.row]) + \(Number[indexPath.row])")
+            return cell
+        }
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredTableData.removeAll(keepingCapacity: false)
+
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+        let array = (Name as NSArray).filtered(using: searchPredicate)
+        filteredTableData = array as! [String]
+
+        tableView.reloadData()
+        
+    }
     
     open var minimumPressDuration: TimeInterval = 0.1
     
@@ -95,9 +128,6 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         if (sender as AnyObject).tag == 9 {
             tfNumberOutlet.text! += "9"
         }
-        if (sender as AnyObject).tag == 0 {
-            tfNumberOutlet.text! += "+"
-        }
         if (sender as AnyObject).tag == 11 {
             tfNumberOutlet.text! += "*"
         }
@@ -126,12 +156,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
                 do {
                     try store.enumerateContacts(with: request, usingBlock:  { (contact, stopPointerIfYouWantToStopEnumeration) in
                         
-                        self.NameWithNumber.append(contact.givenName)
-                        self.NameWithNumber.append(contact.phoneNumbers.first?.value.stringValue ?? "")
+                        self.Name.append(contact.givenName)
+                        self.Number.append(contact.phoneNumbers.first?.value.stringValue ?? "")
                         //                        print(contact.givenName)
                         //                        print(contact.familyName)
                         //                        print(contact.phoneNumbers.first?.value.stringValue ?? "")
-                        print(self.NameWithNumber)
+                        print(self.Name)
+                        print(self.Number)
                     })
                 } catch let err {
                     print("Fail to enumrt", err)
@@ -146,6 +177,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchContacts ()
         
         btn1.layer.cornerRadius = btn1.frame.size.width / 2
         btn2.layer.cornerRadius = btn2.frame.size.width / 2
@@ -161,7 +193,6 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
         
-        fetchContacts ()
         
     }
 }
