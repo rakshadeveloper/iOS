@@ -110,7 +110,14 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     
     
     @IBAction func btnDeleteAction(_ sender: Any) {
-        tfNumberOutlet.text = ""
+        if (tfNumberOutlet.text == nil) {
+            
+        } else {
+            if let text = tfNumberOutlet.text {
+                tfNumberOutlet.text = String(text.dropLast())
+                self.tableView.reloadData()
+            }
+        }
     }
     
     
@@ -118,9 +125,12 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         print((sender as AnyObject).tag!)
         if (sender as AnyObject).tag == 1 {
             tfNumberOutlet.text! += "1"
+            tfNumberOutlet.returnKeyType = .done
+            
         }
         if (sender as AnyObject).tag == 2 {
             tfNumberOutlet.text! += "2"
+            self.tableView.reloadData()
         }
         if (sender as AnyObject).tag == 3 {
             tfNumberOutlet.text! += "3"
@@ -177,7 +187,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
                         //                        print(contact.familyName)
                         //                        print(contact.phoneNumbers.first?.value.stringValue ?? "")
                         self.filterName = self.Name
-//                        print(self.Name)
+                        //                        print(self.Name)
                         print(self.contactDict)
                         //                        print(self.Number)
                     })
@@ -211,8 +221,10 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btnStar.layer.cornerRadius = btnStar.frame.size.width / 2
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
-
+        
         tableView.reloadData()
+//        tfNumberOutlet.delegate = self
+//        tfNumberOutlet.returnKeyType = .done
     }
 }
 
