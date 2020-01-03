@@ -13,16 +13,21 @@ import Foundation
 import _SwiftUIKitOverlayShims
 import MapKit
 
-class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UISearchBarDelegate , UISearchResultsUpdating  {
+class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UITextFieldDelegate  {
     
-//    let tableData = ["One", "Two", "Three","Twenty-One"]
-    var filteredTableData = [String]()
+    fileprivate let application = UIApplication.shared
+    var key : [String] = []
+    var value : [String] = []
+    var automaticallyShowsSearchResultsController: Bool = false
     var resultSearchController = UISearchController()
-    var tableView = UITableView()
     var Name: [String] = []
     var Number: [String] = []
-    open var automaticallyShowsSearchResultsController: Bool = true
-
+    var filterName: [String] = []
+    var filterNumber: [String] = []
+    var contactDict: [String : String] = [:]
+    var filter: [String : String] = [:]
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnPressedLong: UIButton!
     @IBOutlet weak var tfNumberOutlet: UITextField!
     @IBOutlet weak var btn1: UIButton!
@@ -39,12 +44,17 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var btnHash: UIButton!
     @IBOutlet weak var btnCall: UIButton!
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.tfNumberOutlet.delegate = self
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return Name.count
-        if  (resultSearchController.isActive) {
-            return filteredTableData.count
+        
+        if  (filterNumber.count == 0) {
+            
+            return key.count
         } else {
-            return Name.count
+            return self.filterNumber.count
         }
     }
     
@@ -52,34 +62,57 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        if (resultSearchController.isActive) {
-            cell.textLabel?.text = filteredTableData[indexPath.row]
-            print(filteredTableData[indexPath.row])
-            
+        if (filterNumber.count == 0) {
+            key = [Array(self.contactDict.keys)[indexPath.row]]
+            value = [Array(self.contactDict.values)[indexPath.row]]
+            cell.textLabel?.text = "\(key) \(value)"
             return cell
         }
         else {
-            cell.textLabel?.text = "\(Name[indexPath.row]) \(Number[indexPath.row])"
-            
+            cell.textLabel?.text = "\(self.filterNumber[indexPath.row]) \(Name[indexPath.row])"
             return cell
         }
     }
     
-    func updateSearchResults(for searchController: UISearchController) {
-        filteredTableData.removeAll(keepingCapacity: false)
-
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (Name as NSArray).filtered(using: searchPredicate)
-        filteredTableData = array as! [String]
-
-        self.tableView.reloadData()
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if(textField.text!.count > 0 ){
+            self.filterNumber.removeAll()
+            for contact in self.Number {
+                if(contact.starts(with:(textField.text!))) {
+                    self.filterNumber.append(contact)
+                    
+                }
+            }
+            
+            self.tableView.reloadData()
+        }
+        else{
+            self.filterNumber = Number
+        }
+        
+        return true
     }
-    
-    open var minimumPressDuration: TimeInterval = 0.1
     
     @IBAction func btnLongPressed(_ sender: Any) {
         
     }
+    @IBAction func btnCallAction(_ sender: Any) {
+        if let callURL = URL(string: "tel://0123456789") {
+            if application.canOpenURL(callURL){
+                application.open(callURL, options: [:], completionHandler: nil)
+            }
+            else {
+                //alert
+            }
+            
+        }
+    }
+    
+    
+    @IBAction func btnDeleteAction(_ sender: Any) {
+        tfNumberOutlet.text = ""
+    }
+    
     
     @IBAction func btnAction(_ sender: Any) {
         print((sender as AnyObject).tag!)
@@ -118,8 +151,6 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
     }
     
-    @IBAction func btnCallAction(_ sender: Any) {
-    }
     
     private func fetchContacts () {
         print("Attempting contacts")
@@ -139,12 +170,16 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
                     try store.enumerateContacts(with: request, usingBlock:  { (contact, stopPointerIfYouWantToStopEnumeration) in
                         
                         self.Name.append(contact.givenName)
+                        self.contactDict.updateValue(contact.givenName, forKey: "name")
+                        self.contactDict.updateValue(contact.phoneNumbers.first?.value.stringValue ?? "", forKey: "number")
                         self.Number.append(contact.phoneNumbers.first?.value.stringValue ?? "")
                         //                        print(contact.givenName)
                         //                        print(contact.familyName)
                         //                        print(contact.phoneNumbers.first?.value.stringValue ?? "")
-                        print(self.Name)
-                        print(self.Number)
+                        self.filterName = self.Name
+//                        print(self.Name)
+                        print(self.contactDict)
+                        //                        print(self.Number)
                     })
                 } catch let err {
                     print("Fail to enumrt", err)
@@ -176,21 +211,8 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btnStar.layer.cornerRadius = btnStar.frame.size.width / 2
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
-        
-//        resultSearchController.searchResultsUpdater = self as! UISearchResultsUpdating
-        resultSearchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            controller.dimsBackgroundDuringPresentation = false
-            controller.searchBar.sizeToFit()
 
-            tableView.tableHeaderView = controller.searchBar
-
-            return controller
-        })()
-
-        // Reload the table
         tableView.reloadData()
-        
     }
 }
+
