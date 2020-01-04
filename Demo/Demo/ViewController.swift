@@ -27,6 +27,9 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     var contactDict: [String : String] = [:]
     var filter: [String : String] = [:]
     
+    @IBOutlet weak var imgDeleteIcon: UIImageView!
+    @IBOutlet weak var imgCallIcon: UIImageView!
+    @IBOutlet weak var btnDeleteOutlet: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnPressedLong: UIButton!
     @IBOutlet weak var tfNumberOutlet: UITextField!
@@ -80,53 +83,70 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             for contact in self.Number {
                 if(contact.starts(with:(textField.text!))) {
                     self.filterNumber.append(contact)
-                    
                 }
             }
-            
             self.tableView.reloadData()
         }
         else{
             self.filterNumber = Number
         }
+        let text = (tfNumberOutlet.text! as NSString).replacingCharacters(in: range, with: string)
         
+        if !text.isEmpty{
+            btnDeleteOutlet.isUserInteractionEnabled = true
+        } else {
+            btnDeleteOutlet.isUserInteractionEnabled = false
+        }
         return true
     }
-    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.tableView.reloadData()
+    }
     @IBAction func btnLongPressed(_ sender: Any) {
         
     }
     @IBAction func btnCallAction(_ sender: Any) {
-        if let callURL = URL(string: "tel://0123456789") {
+        if let callURL = URL(string: "\(tfNumberOutlet.text ?? "")") {
             if application.canOpenURL(callURL){
                 application.open(callURL, options: [:], completionHandler: nil)
             }
             else {
-                //alert
+                let alert = UIAlertController(title: "Phone Call Action", message: "Call not Avilable \(callURL)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
             }
-            
         }
     }
-    
     
     @IBAction func btnDeleteAction(_ sender: Any) {
-        if (tfNumberOutlet.text == nil) {
+        let text = tfNumberOutlet.text
+        
+        if (text!.isEmpty) {
             
-        } else {
-            if let text = tfNumberOutlet.text {
-                tfNumberOutlet.text = String(text.dropLast())
-                self.tableView.reloadData()
-            }
+            hideButton ()
+            
+        }
+        else {
+            tfNumberOutlet.text = String(text!.dropLast())
+            unHideButton ()
+            self.tableView.reloadData()
         }
     }
-    
+    func hideButton () {
+        btnDeleteOutlet.isHidden = true
+        imgDeleteIcon.isHidden = true
+    }
+    func unHideButton () {
+        btnDeleteOutlet.isHidden = false
+        imgDeleteIcon.isHidden = false
+    }
     
     @IBAction func btnAction(_ sender: Any) {
+        unHideButton ()
         print((sender as AnyObject).tag!)
         if (sender as AnyObject).tag == 1 {
             tfNumberOutlet.text! += "1"
-            tfNumberOutlet.returnKeyType = .done
-            
+            self.tableView.reloadData()
         }
         if (sender as AnyObject).tag == 2 {
             tfNumberOutlet.text! += "2"
@@ -160,7 +180,6 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             tfNumberOutlet.text! += "#"
         }
     }
-    
     
     private func fetchContacts () {
         print("Attempting contacts")
@@ -199,14 +218,20 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
                 print("Access Denied....")
             }
         }
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        tfNumberOutlet.text! += txt
         fetchContacts ()
+        hideButton()
+        unHideButton()
+        
+        tableView.reloadData()
+        btnDeleteOutlet.isHidden = true
+        imgDeleteIcon.isHidden = true
+        imgCallIcon.image = UIImage(named: "call")
+        imgDeleteIcon.image = UIImage(named: "delete")
         
         btn1.layer.cornerRadius = btn1.frame.size.width / 2
         btn2.layer.cornerRadius = btn2.frame.size.width / 2
@@ -221,10 +246,8 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btnStar.layer.cornerRadius = btnStar.frame.size.width / 2
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
+        imgCallIcon.layer.cornerRadius = imgCallIcon.frame.size.width / 2
         
-        tableView.reloadData()
-//        tfNumberOutlet.delegate = self
-//        tfNumberOutlet.returnKeyType = .done
     }
 }
 
