@@ -27,11 +27,8 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     var contactDict: [String : String] = [:]
     var filter: [String : String] = [:]
     
-    @IBOutlet weak var imgDeleteIcon: UIImageView!
-    @IBOutlet weak var imgCallIcon: UIImageView!
     @IBOutlet weak var btnDeleteOutlet: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var btnPressedLong: UIButton!
     @IBOutlet weak var tfNumberOutlet: UITextField!
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
@@ -42,7 +39,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var btn7: UIButton!
     @IBOutlet weak var btn8: UIButton!
     @IBOutlet weak var btn9: UIButton!
-    @IBOutlet weak var btn0: UIButton!
+    @IBOutlet weak var btnLongPress: UIButton!
     @IBOutlet weak var btnStar: UIButton!
     @IBOutlet weak var btnHash: UIButton!
     @IBOutlet weak var btnCall: UIButton!
@@ -77,7 +74,22 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        if(textField.text!.count > 0 ){
+//            self.filterNumber.removeAll()
+//            for contact in self.Number {
+//                if(contact.starts(with:(textField.text!))) {
+//                    self.filterNumber.append(contact)
+//                }
+//            }
+//            self.tableView.reloadData()
+//        }
+//        else{
+//            self.filterNumber = Number
+//        }
+//        return true
+//    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if(textField.text!.count > 0 ){
             self.filterNumber.removeAll()
             for contact in self.Number {
@@ -90,20 +102,31 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         else{
             self.filterNumber = Number
         }
-        let text = (tfNumberOutlet.text! as NSString).replacingCharacters(in: range, with: string)
-        
-        if !text.isEmpty{
-            btnDeleteOutlet.isUserInteractionEnabled = true
-        } else {
-            btnDeleteOutlet.isUserInteractionEnabled = false
-        }
-        return true
-    }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.tfNumberOutlet.delegate = self
         self.tableView.reloadData()
     }
-    @IBAction func btnLongPressed(_ sender: Any) {
+    
+    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction))
+    let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+    @IBAction func btnLongPressed(_ sender: UILongPressGestureRecognizer) {
+        unHideButton ()
         
+        if  sender.state == .began {
+             tfNumberOutlet.text! += "0"
+//            self.btnLongPress.addGestureRecognizer(tap)
+           
+        }
+        else{
+//            self.btnLongPress.addGestureRecognizer(longPress)
+            tfNumberOutlet.text! += "+"
+//            tap.numberOfTapsRequired = 1
+        }
+    }
+    @objc func longPressAction() {
+        print("Long pressed!!")
+    }
+    @objc func tapAction() {
+        print("Tapped!!")
     }
     @IBAction func btnCallAction(_ sender: Any) {
         if let callURL = URL(string: "\(tfNumberOutlet.text ?? "")") {
@@ -122,23 +145,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         let text = tfNumberOutlet.text
         
         if (text!.isEmpty) {
-            
             hideButton ()
-            
         }
         else {
             tfNumberOutlet.text = String(text!.dropLast())
             unHideButton ()
             self.tableView.reloadData()
         }
-    }
-    func hideButton () {
-        btnDeleteOutlet.isHidden = true
-        imgDeleteIcon.isHidden = true
-    }
-    func unHideButton () {
-        btnDeleteOutlet.isHidden = false
-        imgDeleteIcon.isHidden = false
     }
     
     @IBAction func btnAction(_ sender: Any) {
@@ -179,6 +192,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         if (sender as AnyObject).tag == 12 {
             tfNumberOutlet.text! += "#"
         }
+    }
+    
+    func hideButton () {
+        btnDeleteOutlet.isHidden = true
+    }
+    func unHideButton () {
+        btnDeleteOutlet.isHidden = false
     }
     
     private func fetchContacts () {
@@ -229,9 +249,6 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         
         tableView.reloadData()
         btnDeleteOutlet.isHidden = true
-        imgDeleteIcon.isHidden = true
-        imgCallIcon.image = UIImage(named: "call")
-        imgDeleteIcon.image = UIImage(named: "delete")
         
         btn1.layer.cornerRadius = btn1.frame.size.width / 2
         btn2.layer.cornerRadius = btn2.frame.size.width / 2
@@ -242,12 +259,11 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btn7.layer.cornerRadius = btn7.frame.size.width / 2
         btn8.layer.cornerRadius = btn8.frame.size.width / 2
         btn9.layer.cornerRadius = btn9.frame.size.width / 2
-        btn0.layer.cornerRadius = btn0.frame.size.width / 2
+        btnLongPress.layer.cornerRadius = btnLongPress.frame.size.width / 2
         btnStar.layer.cornerRadius = btnStar.frame.size.width / 2
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
-        imgCallIcon.layer.cornerRadius = imgCallIcon.frame.size.width / 2
         
-    }
+        }
 }
 
