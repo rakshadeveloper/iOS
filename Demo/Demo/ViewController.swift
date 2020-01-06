@@ -18,8 +18,6 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     fileprivate let application = UIApplication.shared
     var key : [String] = []
     var value : [String] = []
-    var automaticallyShowsSearchResultsController: Bool = false
-    var resultSearchController = UISearchController()
     var Name: [String] = []
     var Number: [String] = []
     var filterName: [String] = []
@@ -39,19 +37,16 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     @IBOutlet weak var btn7: UIButton!
     @IBOutlet weak var btn8: UIButton!
     @IBOutlet weak var btn9: UIButton!
-    @IBOutlet weak var btnLongPress: UIButton!
+    @IBOutlet weak var btnLongPressed: UIButton!
     @IBOutlet weak var btnStar: UIButton!
     @IBOutlet weak var btnHash: UIButton!
     @IBOutlet weak var btnCall: UIButton!
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.tfNumberOutlet.delegate = self
-    }
+    // Table View To Show Related Contcts
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if  (filterNumber.count == 0) {
-            
             return key.count
         } else {
             return self.filterNumber.count
@@ -74,7 +69,9 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    // Text Fields To Enter/Edit Numbers In Text Fields
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //        if(textField.text!.count > 0 ){
 //            self.filterNumber.removeAll()
 //            for contact in self.Number {
@@ -87,8 +84,13 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
 //        else{
 //            self.filterNumber = Number
 //        }
-//        return true
-//    }
+        return true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.tfNumberOutlet.delegate = self
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if(textField.text!.count > 0 ){
             self.filterNumber.removeAll()
@@ -106,27 +108,18 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         self.tableView.reloadData()
     }
     
-    let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction))
-    let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-    @IBAction func btnLongPressed(_ sender: UILongPressGestureRecognizer) {
+    // Buttons  To Perform Action and Gestures
+    
+    @IBAction func btnLongPressed(_ sender: Any) {
         unHideButton ()
-        
-        if  sender.state == .began {
-             tfNumberOutlet.text! += "0"
-//            self.btnLongPress.addGestureRecognizer(tap)
-           
-        }
-        else{
-//            self.btnLongPress.addGestureRecognizer(longPress)
+        tfNumberOutlet.text! += "0"
+    }
+    
+    @IBAction func longPressedAction(_ sender: UILongPressGestureRecognizer) {
+        unHideButton ()
+        if sender.state == .ended {
             tfNumberOutlet.text! += "+"
-//            tap.numberOfTapsRequired = 1
         }
-    }
-    @objc func longPressAction() {
-        print("Long pressed!!")
-    }
-    @objc func tapAction() {
-        print("Tapped!!")
     }
     @IBAction func btnCallAction(_ sender: Any) {
         if let callURL = URL(string: "\(tfNumberOutlet.text ?? "")") {
@@ -154,8 +147,14 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
     }
     
+    @IBAction func DeleteAllAction(_ sender: UILongPressGestureRecognizer) {
+        tfNumberOutlet.text?.removeAll()
+        hideButton()
+    }
+    
     @IBAction func btnAction(_ sender: Any) {
         unHideButton ()
+        
         print((sender as AnyObject).tag!)
         if (sender as AnyObject).tag == 1 {
             tfNumberOutlet.text! += "1"
@@ -194,17 +193,24 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         }
     }
     
+    // Functions With Definations
+    
+    // Hide and Unhide Function
     func hideButton () {
         btnDeleteOutlet.isHidden = true
     }
     func unHideButton () {
         btnDeleteOutlet.isHidden = false
     }
+    // Getting Contacts From Phonebook Function
     
     private func fetchContacts () {
         print("Attempting contacts")
         
         let store = CNContactStore()
+        
+        // Get Access For Contacts
+        
         store.requestAccess(for: .contacts) { (granted, err) in
             if let err = err {
                 print("Fail to request", err)
@@ -212,6 +218,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             }
             if granted
             {
+                // Store Contacts in Dictionary and Arry
                 print("Access Granted...")
                 let keys = [CNContactGivenNameKey , CNContactPhoneNumbersKey , CNContactFamilyNameKey]
                 let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
@@ -243,12 +250,16 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Additional setup after loading the view.
+        
+        textFieldDidBeginEditing(tfNumberOutlet)
         fetchContacts ()
         hideButton()
         unHideButton()
-        
         tableView.reloadData()
         btnDeleteOutlet.isHidden = true
+        
+        // Give UI Elements Shape to Circle.
         
         btn1.layer.cornerRadius = btn1.frame.size.width / 2
         btn2.layer.cornerRadius = btn2.frame.size.width / 2
@@ -259,7 +270,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btn7.layer.cornerRadius = btn7.frame.size.width / 2
         btn8.layer.cornerRadius = btn8.frame.size.width / 2
         btn9.layer.cornerRadius = btn9.frame.size.width / 2
-        btnLongPress.layer.cornerRadius = btnLongPress.frame.size.width / 2
+        btnLongPressed.layer.cornerRadius = btnLongPressed.frame.size.width / 2
         btnStar.layer.cornerRadius = btnStar.frame.size.width / 2
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
