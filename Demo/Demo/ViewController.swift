@@ -16,14 +16,9 @@ import MapKit
 class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , UITextFieldDelegate  {
     
     fileprivate let application = UIApplication.shared
-    var key : [String] = []
-    var value : [String] = []
-    var Name: [String] = []
-    var Number: [String] = []
-    var filterName: [String] = []
-    var filterNumber: [String] = []
-    var contactDict: [String : String] = [:]
-    var filter: [String : String] = [:]
+    
+    var filter =  [Dictionary<String, String>]()
+    var filterSearchRecord =  [Dictionary<String, String>]()
     
     @IBOutlet weak var btnDeleteOutlet: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -45,78 +40,82 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     // Table View To Show Related Contcts
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if  (filterNumber.count == 0) {
-            return key.count
-        } else {
-            return self.filterNumber.count
-        }
+        return self.filterSearchRecord.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        if (filterNumber.count == 0) {
-            key = [Array(self.contactDict.keys)[indexPath.row]]
-            value = [Array(self.contactDict.values)[indexPath.row]]
-            cell.textLabel?.text = "\(key) \(value)"
-            return cell
-        }
-        else {
-            cell.textLabel?.text = "\(self.filterNumber[indexPath.row]) \(Name[indexPath.row])"
-            return cell
-        }
+        
+        let contact = self.filterSearchRecord[indexPath.row]
+        let name = contact.keys.first?.description
+        let number = contact.values.first?.description
+        
+        
+        
+        cell.textLabel?.text = "\(name ?? "") +  \(number ?? "")"
+        return cell
     }
-    
+
     // Text Fields To Enter/Edit Numbers In Text Fields
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        if(textField.text!.count > 0 ){
-//            self.filterNumber.removeAll()
-//            for contact in self.Number {
-//                if(contact.starts(with:(textField.text!))) {
-//                    self.filterNumber.append(contact)
-//                }
-//            }
-//            self.tableView.reloadData()
-//        }
-//        else{
-//            self.filterNumber = Number
-//        }
-        return true
-    }
-    
+    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    //        if(textField.text!.count > 0 ){
+    //            self.filterNumber.removeAll()
+    //            for (name, number) in contactDict {
+    //                if(number.starts(with:(textField.text!))) {
+    //                    self.filterNumber.append(number)
+    //                }
+    //            }
+    //
+    //
+    //            self.tableView.reloadData()
+    //        }
+    //        else{
+    //            self.filterNumber = Number
+    //        }
+    //        return true
+    //    }
+    //
     override func viewDidAppear(_ animated: Bool) {
         self.tfNumberOutlet.delegate = self
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if(textField.text!.count > 0 ){
-            self.filterNumber.removeAll()
-            for contact in self.Number {
-                if(contact.starts(with:(textField.text!))) {
-                    self.filterNumber.append(contact)
+    @IBAction func btTypePhoneNumberAction(_ sender: UIButton) {
+        
+        if(tfNumberOutlet.text!.count > 0 ){
+            self.filterSearchRecord.removeAll()
+            
+            for contact in self.filter {
+                let name = contact.keys.first?.description
+                let number = contact.values.first?.description
+                var someDict = [String: String]()
+                
+                if(number!.starts(with:(tfNumberOutlet.text!)) || (name?.starts(with:(tfNumberOutlet.text!)))!) {
+                    someDict["name"] = number?.description
                 }
+                self.filterSearchRecord.append(someDict)
             }
+            
             self.tableView.reloadData()
+        }else{
+            self.filterSearchRecord = filter
+            
         }
-        else{
-            self.filterNumber = Number
-        }
-        self.tfNumberOutlet.delegate = self
-        self.tableView.reloadData()
+        
+        
     }
     
     // Buttons  To Perform Action and Gestures
     
     @IBAction func btnLongPressed(_ sender: Any) {
-        unHideButton ()
+        unHideDeleteButton ()
         tfNumberOutlet.text! += "0"
     }
     
     @IBAction func longPressedAction(_ sender: UILongPressGestureRecognizer) {
-        unHideButton ()
+        unHideDeleteButton ()
         if sender.state == .ended {
             tfNumberOutlet.text! += "+"
         }
@@ -135,25 +134,26 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     }
     
     @IBAction func btnDeleteAction(_ sender: Any) {
+         self.tableView.reloadData()
         let text = tfNumberOutlet.text
         
         if (text!.isEmpty) {
-            hideButton ()
+            hideDeleteButton ()
         }
         else {
             tfNumberOutlet.text = String(text!.dropLast())
-            unHideButton ()
+            unHideDeleteButton ()
             self.tableView.reloadData()
         }
     }
     
     @IBAction func DeleteAllAction(_ sender: UILongPressGestureRecognizer) {
         tfNumberOutlet.text?.removeAll()
-        hideButton()
+        hideDeleteButton()
     }
     
     @IBAction func btnAction(_ sender: Any) {
-        unHideButton ()
+        unHideDeleteButton ()
         
         print((sender as AnyObject).tag!)
         if (sender as AnyObject).tag == 1 {
@@ -196,10 +196,10 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     // Functions With Definations
     
     // Hide and Unhide Function
-    func hideButton () {
+    func hideDeleteButton () {
         btnDeleteOutlet.isHidden = true
     }
-    func unHideButton () {
+    func unHideDeleteButton () {
         btnDeleteOutlet.isHidden = false
     }
     // Getting Contacts From Phonebook Function
@@ -225,17 +225,15 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
                 do {
                     try store.enumerateContacts(with: request, usingBlock:  { (contact, stopPointerIfYouWantToStopEnumeration) in
                         
-                        self.Name.append(contact.givenName)
-                        self.contactDict.updateValue(contact.givenName, forKey: "name")
-                        self.contactDict.updateValue(contact.phoneNumbers.first?.value.stringValue ?? "", forKey: "number")
-                        self.Number.append(contact.phoneNumbers.first?.value.stringValue ?? "")
-                        //                        print(contact.givenName)
-                        //                        print(contact.familyName)
-                        //                        print(contact.phoneNumbers.first?.value.stringValue ?? "")
-                        self.filterName = self.Name
-                        //                        print(self.Name)
-                        print(self.contactDict)
-                        //                        print(self.Number)
+                        var results: [CNContact] = []
+                        results.append(contact)
+                        
+                        for contactValue in results {
+                            let someDict:[String :String] = [contactValue.givenName.description : contactValue.phoneNumbers.first?.value.stringValue ?? ""]
+                            self.filter.append(someDict)
+                            print(someDict)
+                        }
+                        self.filterSearchRecord = self.filter
                     })
                 } catch let err {
                     print("Fail to enumrt", err)
@@ -252,10 +250,9 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         
         // Additional setup after loading the view.
         
-        textFieldDidBeginEditing(tfNumberOutlet)
         fetchContacts ()
-        hideButton()
-        unHideButton()
+        hideDeleteButton()
+        unHideDeleteButton()
         tableView.reloadData()
         btnDeleteOutlet.isHidden = true
         
@@ -275,6 +272,6 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         btnHash.layer.cornerRadius = btnHash.frame.size.width / 2
         btnCall.layer.cornerRadius = btnCall.frame.size.width / 2
         
-        }
+    }
 }
 

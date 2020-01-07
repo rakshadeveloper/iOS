@@ -26,6 +26,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="1"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkm-pc-jAW"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BC4-Of-kpg"/>
                                 </connections>
                             </button>
@@ -41,6 +42,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="2"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fxx-GH-9To"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bsJ-Qh-cdc"/>
                                 </connections>
                             </button>
@@ -55,6 +57,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="3"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wxf-3B-B2m"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZnU-ki-lY4"/>
                                 </connections>
                             </button>
@@ -69,6 +72,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="4"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sAx-F8-LVl"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j9G-TE-Oe7"/>
                                 </connections>
                             </button>
@@ -93,6 +97,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="5"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y1v-NK-gQ7"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c3Q-yj-rB2"/>
                                 </connections>
                             </button>
@@ -107,6 +112,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="6"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ciX-al-9km"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHo-Qx-dsQ"/>
                                 </connections>
                             </button>
@@ -121,6 +127,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="7"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Str-ON-sWb"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nTn-Rl-apS"/>
                                 </connections>
                             </button>
@@ -135,6 +142,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="8"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8NF-wl-goI"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mfQ-lI-YyG"/>
                                 </connections>
                             </button>
@@ -149,6 +157,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="9"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Syk-iw-Cg4"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IbL-2Q-Fv9"/>
                                 </connections>
                             </button>
@@ -163,6 +172,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="*"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rKJ-c4-LEn"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pB5-Om-IHi"/>
                                 </connections>
                             </button>
@@ -178,6 +188,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="0"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9BG-dX-zFA"/>
                                     <action selector="btnLongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JZV-fQ-T3c"/>
                                     <outletCollection property="gestureRecognizers" destination="nPu-2Z-AYC" appends="YES" id="NQP-RJ-8YD"/>
                                 </connections>
@@ -193,6 +204,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <state key="normal" title="#"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fFm-wm-HqS"/>
                                     <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DoM-Je-c5N"/>
                                 </connections>
                             </button>
@@ -305,7 +317,7 @@
                                 <rect key="frame" x="20" y="40" width="374" height="50"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uh2-CM-Z9R">
                                 <rect key="frame" x="311" y="783" width="69" height="67"/>
@@ -316,6 +328,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="delete"/>
                                 <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Vm-bC-ffN"/>
                                     <action selector="btnDeleteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="neA-mN-BYB"/>
                                     <outletCollection property="gestureRecognizers" destination="CCf-P9-jBd" appends="YES" id="yXS-MJ-1jd"/>
                                 </connections>
