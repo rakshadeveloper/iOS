@@ -52,32 +52,12 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
         let name = contact.keys.first?.description
         let number = contact.values.first?.description
         
-        
-        
         cell.textLabel?.text = "\(name ?? "") +  \(number ?? "")"
         return cell
     }
 
     // Text Fields To Enter/Edit Numbers In Text Fields
     
-    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-    //        if(textField.text!.count > 0 ){
-    //            self.filterNumber.removeAll()
-    //            for (name, number) in contactDict {
-    //                if(number.starts(with:(textField.text!))) {
-    //                    self.filterNumber.append(number)
-    //                }
-    //            }
-    //
-    //
-    //            self.tableView.reloadData()
-    //        }
-    //        else{
-    //            self.filterNumber = Number
-    //        }
-    //        return true
-    //    }
-    //
     override func viewDidAppear(_ animated: Bool) {
         self.tfNumberOutlet.delegate = self
     }
@@ -219,6 +199,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
             if granted
             {
                 // Store Contacts in Dictionary and Arry
+                
                 print("Access Granted...")
                 let keys = [CNContactGivenNameKey , CNContactPhoneNumbersKey , CNContactFamilyNameKey]
                 let request = CNContactFetchRequest(keysToFetch: keys as [CNKeyDescriptor])
