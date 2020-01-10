@@ -128,6 +128,7 @@ class ViewController: UIViewController , UITableViewDelegate , UITableViewDataSo
     }
     
     @IBAction func DeleteAllAction(_ sender: UILongPressGestureRecognizer) {
+        self.tableView.reloadData()
         tfNumberOutlet.text?.removeAll()
         hideDeleteButton()
     }
