@@ -12,7 +12,7 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     
     var tableArray = ["Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake"]
     
-    @IBOutlet weak var favouritsView: UIView!
+//    @IBOutlet weak var favouritsView: UIView!
     @IBOutlet weak var tableView: UITableView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableArray.count
@@ -38,7 +38,7 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
 
         switch state {
         case .began:
-            
+            self.performSegue(withIdentifier: "add", sender: self)
             if indexPath != nil {
                 Path.initialIndexPath = indexPath
                 let cell = self.tableView.cellForRow(at: indexPath!) as! CustomCell
