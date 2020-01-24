@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
-        <!--View Controller-->
+        <!--List Controller-->
         <scene sceneID="7HZ-Fe-xom">
             <objects>
-                <viewController id="6RX-1q-Xz1" sceneMemberID="viewController">
+                <viewController id="6RX-1q-Xz1" customClass="ListController" customModule="TableView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Q0-iG-NgK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
