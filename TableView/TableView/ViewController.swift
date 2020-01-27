@@ -7,20 +7,10 @@
 //
 
 import UIKit
-struct jsonstruct:Decodable {
-    let states:String
-//    let districts:String
-//    let alpha2Code:String
-//    let alpha3Code:String
-//    let region:String
-//    let subregion:String
-   
-}
-
 class ViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
     
     var array = Array<String>()
-    var arrdata = [jsonstruct]()
+    var arrdata = [State]()
     //    var tableArray = ["Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine"]
     
     //    @IBOutlet weak var favouritsView: UIView!
@@ -132,7 +122,6 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        getdata()
         tableView.dataSource = self
         tableView.delegate = self
         let nibName = UINib(nibName: "CustomCell", bundle: nil)
@@ -144,48 +133,21 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         
         
         // JSON Data Parsing
-//        TableData.downloadTabledata { jsonData in
-//            guard let jData = jsonData else {return}
-//            do {
-//                if let json = try JSONSerialization.jsonObject(with: jData, options: []) as? [String : Any] {
-////                    print(json)
-//                    print(json["state"])
-////                    if let states = json["states"] as? Array<String> {
-////                        if let state = json["states"] as? Dictionary<String, Array<String>>{
-////
-////                            for st in state {
-////                                print(st)
-////                            }
-////                        }
-////                    }
-//                }
-//            } catch let err {
-//                print(err.localizedDescription)
-//            }
-//        }
-        
-        
-    }
-    
-    func getdata(){
-        let url = URL(string: "https://raw.githubusercontent.com/sab99r/Indian-States-And-Districts/master/states-and-districts.json")
-        URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            do{if error == nil{
-                self.arrdata = try JSONDecoder().decode([jsonstruct].self, from: data!)
-                
-                for mainarr in self.arrdata{
-                    print(mainarr.states)
-//                    DispatchQueue.main.async {
-//                         self.tableview.reloadData()
-//                    }
+        TableData.downloadTabledata { jsonData in
+            guard let jData = jsonData else {return}
+            do {
+                if let json = try JSONSerialization.jsonObject(with: jData, options: []) as? [String : Any] {
+//                    print(json)
                    
+                    if let st = json["states"] as? Array<Dictionary<String, String>> {
+                        for state in st {
+                            print(state["state"]! )
+                        }
+                    }
                 }
-                }
-            
-            }catch{
-                print("Error")
+            } catch let err {
+                print(err.localizedDescription)
             }
-            
-        }.resume()
+        }
     }
 }
