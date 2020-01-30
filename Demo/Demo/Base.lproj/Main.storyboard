@@ -15,392 +15,273 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-2Y-f83" userLabel="TopView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="263"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4xE-El-LG3">
-                                        <rect key="frame" x="20" y="52" width="374" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i8A-5o-wTp">
+                                <rect key="frame" x="-1" y="0.0" width="415" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ekc-FR-Uov">
+                                <rect key="frame" x="20" y="41" width="374" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HWq-We-saX" userLabel="tableView">
+                                <rect key="frame" x="20" y="99" width="374" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="wjj-WN-ZAK">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wjj-WN-ZAK" id="BOm-ti-H7H">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
-                                    </textField>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9hR-Vl-QYM" userLabel="tableView">
-                                        <rect key="frame" x="20" y="110" width="374" height="145"/>
-                                        <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="145" id="PWu-tQ-TUM"/>
-                                        </constraints>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="oym-l8-Byi">
-                                                <rect key="frame" x="0.0" y="28" width="374" height="43.666667938232422"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oym-l8-Byi" id="yeE-7i-PyU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </tableViewCell>
-                                        </prototypes>
-                                        <connections>
-                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="vAj-NJ-7Vn"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="I1O-cP-bbu"/>
-                                            <outlet property="prefetchDataSource" destination="BYZ-38-t0r" id="9gi-Eh-gFJ"/>
-                                        </connections>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="4xE-El-LG3" firstAttribute="trailing" secondItem="9hR-Vl-QYM" secondAttribute="trailing" id="CGZ-NY-YBE"/>
-                                    <constraint firstAttribute="height" constant="263" id="M34-Hh-z6G"/>
-                                    <constraint firstItem="9hR-Vl-QYM" firstAttribute="bottom" secondItem="X9X-2Y-f83" secondAttribute="bottomMargin" id="Naq-yU-nBL"/>
-                                    <constraint firstItem="4xE-El-LG3" firstAttribute="leading" secondItem="9hR-Vl-QYM" secondAttribute="leading" id="VJd-bC-3md"/>
-                                    <constraint firstItem="9hR-Vl-QYM" firstAttribute="top" secondItem="4xE-El-LG3" secondAttribute="bottom" constant="8" symbolic="YES" id="k5w-m3-Nrs"/>
-                                    <constraint firstItem="9hR-Vl-QYM" firstAttribute="centerX" secondItem="X9X-2Y-f83" secondAttribute="centerX" id="kC2-hO-k2r"/>
-                                    <constraint firstItem="9hR-Vl-QYM" firstAttribute="leading" secondItem="X9X-2Y-f83" secondAttribute="leading" constant="20" id="t0M-Le-Gok"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvC-DD-NlJ" userLabel="MiddleView">
-                                <rect key="frame" x="0.0" y="261" width="414" height="413"/>
-                                <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-NC-LBp">
-                                        <rect key="frame" x="20.000000000000007" y="8" width="90.666666666666686" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="1"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkm-pc-jAW"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BC4-Of-kpg"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YF-7p-KZu">
-                                        <rect key="frame" x="162.66666666666666" y="8" width="89" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="2"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fxx-GH-9To"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bsJ-Qh-cdc"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMq-Ju-MT5">
-                                        <rect key="frame" x="190" y="65" width="34" height="21"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNN-2r-3KF">
-                                        <rect key="frame" x="303.66666666666669" y="8" width="90.333333333333314" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="3"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wxf-3B-B2m"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZnU-ki-lY4"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEt-O2-EaE">
-                                        <rect key="frame" x="332.66666666666669" y="65" width="32" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnQ-fy-ale">
-                                        <rect key="frame" x="20.000000000000007" y="115" width="90.666666666666686" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="4"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sAx-F8-LVl"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j9G-TE-Oe7"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GHI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5x-sY-15h">
-                                        <rect key="frame" x="49.999999999999993" y="173" width="30.666666666666664" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4xO-mz-1Uj">
-                                        <rect key="frame" x="162.66666666666666" y="115" width="89" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="5"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y1v-NK-gQ7"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c3Q-yj-rB2"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JKL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXe-fi-6km">
-                                        <rect key="frame" x="192.66666666666666" y="173" width="29" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jb-lg-iGZ">
-                                        <rect key="frame" x="303.66666666666669" y="115" width="90.333333333333314" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="6"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ciX-al-9km"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHo-Qx-dsQ"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MNO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4J7-1Q-MdR">
-                                        <rect key="frame" x="328.66666666666669" y="173" width="40" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiW-1h-pi6">
-                                        <rect key="frame" x="20.000000000000007" y="216" width="90.666666666666686" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="7"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Str-ON-sWb"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nTn-Rl-apS"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PQRS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foZ-Z2-WIb">
-                                        <rect key="frame" x="43" y="275" width="44.666666666666657" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STO-CQ-fza">
-                                        <rect key="frame" x="162.66666666666666" y="216" width="89" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="8"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8NF-wl-goI"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mfQ-lI-YyG"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TUV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUU-5C-t06">
-                                        <rect key="frame" x="190" y="275" width="34" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sa1-94-Elo">
-                                        <rect key="frame" x="303.66666666666669" y="216" width="90.333333333333314" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="9"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Syk-iw-Cg4"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IbL-2Q-Fv9"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WXYZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCc-E3-r53">
-                                        <rect key="frame" x="324.66666666666669" y="275" width="48.333333333333314" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMx-Np-cLY">
-                                        <rect key="frame" x="20.000000000000007" y="317" width="90.666666666666686" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="*"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rKJ-c4-LEn"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pB5-Om-IHi"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcz-el-cXa">
-                                        <rect key="frame" x="162.66666666666666" y="317" width="89" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="0"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9BG-dX-zFA"/>
-                                            <action selector="btnLongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JZV-fQ-T3c"/>
-                                            <outletCollection property="gestureRecognizers" destination="nPu-2Z-AYC" appends="YES" id="NQP-RJ-8YD"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUh-s2-gaZ">
-                                        <rect key="frame" x="303.66666666666669" y="317" width="90.333333333333314" height="90"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" title="#"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fFm-wm-HqS"/>
-                                            <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DoM-Je-c5N"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBL-vQ-4pk">
-                                        <rect key="frame" x="199" y="371" width="16" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="Sa1-94-Elo" firstAttribute="centerX" secondItem="eCc-E3-r53" secondAttribute="centerX" id="2Ac-wE-FK9"/>
-                                    <constraint firstItem="4xO-mz-1Uj" firstAttribute="leading" secondItem="STO-CQ-fza" secondAttribute="leading" id="3a2-ok-mbA"/>
-                                    <constraint firstItem="2Jb-lg-iGZ" firstAttribute="leading" secondItem="XXe-fi-6km" secondAttribute="trailing" constant="82" id="5jq-fV-8oM"/>
-                                    <constraint firstItem="T0g-NC-LBp" firstAttribute="leading" secondItem="fvC-DD-NlJ" secondAttribute="leading" constant="20" id="70b-pA-MNH"/>
-                                    <constraint firstItem="yiW-1h-pi6" firstAttribute="top" secondItem="STO-CQ-fza" secondAttribute="top" id="8Hk-LP-bFj"/>
-                                    <constraint firstItem="4xO-mz-1Uj" firstAttribute="trailing" secondItem="STO-CQ-fza" secondAttribute="trailing" id="8Pa-8Y-sY9"/>
-                                    <constraint firstAttribute="bottom" secondItem="JMx-Np-cLY" secondAttribute="bottom" constant="6" id="9jh-4q-F1W"/>
-                                    <constraint firstItem="JMx-Np-cLY" firstAttribute="top" secondItem="yiW-1h-pi6" secondAttribute="bottom" constant="11" id="AMW-M1-llO"/>
-                                    <constraint firstItem="6YF-7p-KZu" firstAttribute="top" secondItem="kNN-2r-3KF" secondAttribute="top" id="Aga-by-xRP"/>
-                                    <constraint firstItem="4xO-mz-1Uj" firstAttribute="centerX" secondItem="XXe-fi-6km" secondAttribute="centerX" id="Amz-ab-9w8"/>
-                                    <constraint firstItem="bUU-5C-t06" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yMq-Ju-MT5" secondAttribute="leading" id="BHc-h6-ozl"/>
-                                    <constraint firstItem="yiW-1h-pi6" firstAttribute="baseline" secondItem="STO-CQ-fza" secondAttribute="firstBaseline" id="BTP-np-rZt"/>
-                                    <constraint firstItem="STO-CQ-fza" firstAttribute="leading" secondItem="foZ-Z2-WIb" secondAttribute="trailing" constant="75" id="Bgq-sM-onJ"/>
-                                    <constraint firstItem="JMx-Np-cLY" firstAttribute="bottom" secondItem="Qcz-el-cXa" secondAttribute="bottom" id="Bkt-RM-kFc"/>
-                                    <constraint firstItem="yiW-1h-pi6" firstAttribute="leading" secondItem="JMx-Np-cLY" secondAttribute="leading" id="C0o-sL-EVf"/>
-                                    <constraint firstItem="T0g-NC-LBp" firstAttribute="top" secondItem="6YF-7p-KZu" secondAttribute="top" id="CLb-Ip-2ya"/>
-                                    <constraint firstItem="6YF-7p-KZu" firstAttribute="baseline" secondItem="kNN-2r-3KF" secondAttribute="firstBaseline" id="Cd7-Nw-RtA"/>
-                                    <constraint firstItem="4xO-mz-1Uj" firstAttribute="top" secondItem="2Jb-lg-iGZ" secondAttribute="top" id="Cpm-9p-8GU"/>
-                                    <constraint firstItem="yiW-1h-pi6" firstAttribute="top" secondItem="W5x-sY-15h" secondAttribute="bottom" constant="22" id="Dbb-tF-DhJ"/>
-                                    <constraint firstItem="yiW-1h-pi6" firstAttribute="centerX" secondItem="foZ-Z2-WIb" secondAttribute="centerX" id="Dzk-Wj-RJq"/>
-                                    <constraint firstItem="2Jb-lg-iGZ" firstAttribute="centerX" secondItem="4J7-1Q-MdR" secondAttribute="centerX" id="Fk7-5q-XpU"/>
-                                    <constraint firstAttribute="height" constant="413" id="GKl-IY-LTb"/>
-                                    <constraint firstItem="W5x-sY-15h" firstAttribute="baseline" secondItem="XXe-fi-6km" secondAttribute="baseline" id="JHD-Ra-NFo"/>
-                                    <constraint firstItem="6YF-7p-KZu" firstAttribute="centerX" secondItem="fvC-DD-NlJ" secondAttribute="centerX" id="JLi-a0-u3R"/>
-                                    <constraint firstItem="kNN-2r-3KF" firstAttribute="centerX" secondItem="hEt-O2-EaE" secondAttribute="centerX" id="JlP-0o-Twq"/>
-                                    <constraint firstItem="Sa1-94-Elo" firstAttribute="leading" secondItem="bUU-5C-t06" secondAttribute="trailing" constant="79.5" id="KhA-0E-enV"/>
-                                    <constraint firstItem="yiW-1h-pi6" firstAttribute="top" secondItem="LnQ-fy-ale" secondAttribute="bottom" constant="11" id="MSt-cb-G5z"/>
-                                    <constraint firstItem="LnQ-fy-ale" firstAttribute="centerX" secondItem="W5x-sY-15h" secondAttribute="centerX" id="NKZ-8L-UBL"/>
-                                    <constraint firstItem="2Jb-lg-iGZ" firstAttribute="trailing" secondItem="Sa1-94-Elo" secondAttribute="trailing" id="NgF-EK-0wD"/>
-                                    <constraint firstItem="kNN-2r-3KF" firstAttribute="trailing" secondItem="2Jb-lg-iGZ" secondAttribute="trailing" id="Ozp-yc-et9"/>
-                                    <constraint firstItem="yMq-Ju-MT5" firstAttribute="top" secondItem="fvC-DD-NlJ" secondAttribute="top" constant="65" id="P11-XY-tNz"/>
-                                    <constraint firstAttribute="trailing" secondItem="kNN-2r-3KF" secondAttribute="trailing" constant="20" id="QWY-Xo-8O0"/>
-                                    <constraint firstItem="JMx-Np-cLY" firstAttribute="top" secondItem="foZ-Z2-WIb" secondAttribute="bottom" constant="21" id="TL5-AP-nyb"/>
-                                    <constraint firstItem="hBL-vQ-4pk" firstAttribute="top" secondItem="STO-CQ-fza" secondAttribute="bottom" constant="65" id="UZB-ET-hSN"/>
-                                    <constraint firstItem="yMq-Ju-MT5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="T0g-NC-LBp" secondAttribute="trailing" id="Vex-gj-n3c"/>
-                                    <constraint firstItem="LnQ-fy-ale" firstAttribute="top" secondItem="4xO-mz-1Uj" secondAttribute="top" id="WpG-1T-rB5"/>
-                                    <constraint firstItem="yiW-1h-pi6" firstAttribute="trailing" secondItem="JMx-Np-cLY" secondAttribute="trailing" id="Z2n-qF-6Tv"/>
-                                    <constraint firstItem="6YF-7p-KZu" firstAttribute="leading" secondItem="4xO-mz-1Uj" secondAttribute="leading" id="ZV5-uc-SPo"/>
-                                    <constraint firstItem="6YF-7p-KZu" firstAttribute="trailing" secondItem="4xO-mz-1Uj" secondAttribute="trailing" id="Zu8-bN-9AG"/>
-                                    <constraint firstItem="STO-CQ-fza" firstAttribute="top" secondItem="Sa1-94-Elo" secondAttribute="top" id="a1Q-5M-842"/>
-                                    <constraint firstItem="T0g-NC-LBp" firstAttribute="trailing" secondItem="LnQ-fy-ale" secondAttribute="trailing" id="aTe-VH-wqA"/>
-                                    <constraint firstItem="2Jb-lg-iGZ" firstAttribute="leading" secondItem="Sa1-94-Elo" secondAttribute="leading" id="aoc-oL-hcz"/>
-                                    <constraint firstItem="yMq-Ju-MT5" firstAttribute="baseline" secondItem="hEt-O2-EaE" secondAttribute="baseline" id="bNq-ng-XSh"/>
-                                    <constraint firstItem="eCc-E3-r53" firstAttribute="leading" secondItem="STO-CQ-fza" secondAttribute="trailing" constant="73" id="c5W-ye-vYM"/>
-                                    <constraint firstItem="Qcz-el-cXa" firstAttribute="centerX" secondItem="hBL-vQ-4pk" secondAttribute="centerX" id="cJl-5T-u7R"/>
-                                    <constraint firstItem="STO-CQ-fza" firstAttribute="leading" secondItem="Qcz-el-cXa" secondAttribute="leading" id="cPf-XF-kg8"/>
-                                    <constraint firstItem="JMx-Np-cLY" firstAttribute="top" secondItem="Qcz-el-cXa" secondAttribute="top" id="dHe-Al-DPq"/>
-                                    <constraint firstItem="T0g-NC-LBp" firstAttribute="baseline" secondItem="6YF-7p-KZu" secondAttribute="firstBaseline" id="ewF-D6-naH"/>
-                                    <constraint firstItem="bUU-5C-t06" firstAttribute="baseline" secondItem="eCc-E3-r53" secondAttribute="baseline" id="fYo-43-PQO"/>
-                                    <constraint firstItem="LnQ-fy-ale" firstAttribute="top" secondItem="T0g-NC-LBp" secondAttribute="bottom" constant="17" id="g7M-Xc-3yz"/>
-                                    <constraint firstItem="STO-CQ-fza" firstAttribute="trailing" secondItem="Qcz-el-cXa" secondAttribute="trailing" id="h9i-RF-Bfh"/>
-                                    <constraint firstItem="T0g-NC-LBp" firstAttribute="leading" secondItem="LnQ-fy-ale" secondAttribute="leading" id="hMA-jk-2cb"/>
-                                    <constraint firstItem="Qcz-el-cXa" firstAttribute="top" secondItem="MUh-s2-gaZ" secondAttribute="top" id="hZG-sG-gXh"/>
-                                    <constraint firstItem="LnQ-fy-ale" firstAttribute="baseline" secondItem="4xO-mz-1Uj" secondAttribute="firstBaseline" id="j5b-zV-A85"/>
-                                    <constraint firstItem="STO-CQ-fza" firstAttribute="baseline" secondItem="Sa1-94-Elo" secondAttribute="firstBaseline" id="jFd-tx-EzJ"/>
-                                    <constraint firstItem="Qcz-el-cXa" firstAttribute="baseline" secondItem="MUh-s2-gaZ" secondAttribute="firstBaseline" id="kgp-7C-hC1"/>
-                                    <constraint firstItem="W5x-sY-15h" firstAttribute="top" secondItem="T0g-NC-LBp" secondAttribute="bottom" constant="75" id="mOh-cn-U5d"/>
-                                    <constraint firstItem="LnQ-fy-ale" firstAttribute="trailing" secondItem="yiW-1h-pi6" secondAttribute="trailing" id="mbf-fY-vTa"/>
-                                    <constraint firstItem="T0g-NC-LBp" firstAttribute="top" secondItem="fvC-DD-NlJ" secondAttribute="topMargin" id="mdY-S3-uXj"/>
-                                    <constraint firstItem="LnQ-fy-ale" firstAttribute="leading" secondItem="yiW-1h-pi6" secondAttribute="leading" id="okj-Rj-48t"/>
-                                    <constraint firstItem="6YF-7p-KZu" firstAttribute="leading" secondItem="T0g-NC-LBp" secondAttribute="trailing" constant="52" id="ouH-8T-mv5"/>
-                                    <constraint firstItem="foZ-Z2-WIb" firstAttribute="baseline" secondItem="bUU-5C-t06" secondAttribute="baseline" id="p5N-On-YgI"/>
-                                    <constraint firstItem="4xO-mz-1Uj" firstAttribute="top" secondItem="yMq-Ju-MT5" secondAttribute="bottom" constant="29" id="ppm-af-BrJ"/>
-                                    <constraint firstItem="kNN-2r-3KF" firstAttribute="leading" secondItem="2Jb-lg-iGZ" secondAttribute="leading" id="q2r-Pc-Drw"/>
-                                    <constraint firstItem="4xO-mz-1Uj" firstAttribute="baseline" secondItem="2Jb-lg-iGZ" secondAttribute="firstBaseline" id="qQx-yD-Up8"/>
-                                    <constraint firstItem="Sa1-94-Elo" firstAttribute="trailing" secondItem="MUh-s2-gaZ" secondAttribute="trailing" id="rrP-Jn-FbG"/>
-                                    <constraint firstItem="XXe-fi-6km" firstAttribute="baseline" secondItem="4J7-1Q-MdR" secondAttribute="baseline" id="tV0-yt-a28"/>
-                                    <constraint firstItem="kNN-2r-3KF" firstAttribute="leading" secondItem="6YF-7p-KZu" secondAttribute="trailing" constant="52" id="u1C-hP-S34"/>
-                                    <constraint firstItem="Sa1-94-Elo" firstAttribute="leading" secondItem="MUh-s2-gaZ" secondAttribute="leading" id="vzU-aT-Th4"/>
-                                    <constraint firstItem="4xO-mz-1Uj" firstAttribute="leading" secondItem="W5x-sY-15h" secondAttribute="trailing" constant="82" id="xoc-u5-ZZU"/>
-                                    <constraint firstItem="6YF-7p-KZu" firstAttribute="centerX" secondItem="yMq-Ju-MT5" secondAttribute="centerX" id="yxG-K0-OZE"/>
-                                    <constraint firstItem="foZ-Z2-WIb" firstAttribute="top" secondItem="LnQ-fy-ale" secondAttribute="bottom" constant="70" id="zHJ-Gm-YSw"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sz4-Gv-hgv" userLabel="BottomView">
-                                <rect key="frame" x="0.0" y="682" width="414" height="214"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UJ-Kd-2SB">
-                                        <rect key="frame" x="157" y="61" width="100" height="101"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <state key="normal" backgroundImage="call"/>
-                                        <connections>
-                                            <action selector="btnCallAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="juu-nz-k0S"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uh2-CM-Z9R">
-                                        <rect key="frame" x="315" y="78" width="50" height="67"/>
-                                        <gestureRecognizers/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="hce-zQ-gTE"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="delete"/>
-                                        <connections>
-                                            <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Vm-bC-ffN"/>
-                                            <action selector="btnDeleteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="neA-mN-BYB"/>
-                                            <outletCollection property="gestureRecognizers" destination="CCf-P9-jBd" appends="YES" id="yXS-MJ-1jd"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="uh2-CM-Z9R" firstAttribute="top" secondItem="Sz4-Gv-hgv" secondAttribute="top" constant="78" id="9gx-2V-u5R"/>
-                                    <constraint firstItem="1UJ-Kd-2SB" firstAttribute="centerX" secondItem="Sz4-Gv-hgv" secondAttribute="centerX" id="9pW-fG-sDs"/>
-                                    <constraint firstItem="1UJ-Kd-2SB" firstAttribute="centerY" secondItem="Sz4-Gv-hgv" secondAttribute="centerY" id="Fzh-Pf-5Xm"/>
-                                    <constraint firstItem="1UJ-Kd-2SB" firstAttribute="centerY" secondItem="uh2-CM-Z9R" secondAttribute="centerY" id="OKE-87-qFq"/>
-                                    <constraint firstItem="uh2-CM-Z9R" firstAttribute="leading" secondItem="1UJ-Kd-2SB" secondAttribute="trailing" constant="58" id="dXO-3w-B2E"/>
-                                    <constraint firstItem="1UJ-Kd-2SB" firstAttribute="top" secondItem="Sz4-Gv-hgv" secondAttribute="top" constant="61" id="jQI-sm-Pe0"/>
-                                    <constraint firstAttribute="trailing" secondItem="uh2-CM-Z9R" secondAttribute="trailing" constant="49" id="vGa-av-ZLW"/>
-                                </constraints>
-                            </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="NsQ-g3-48a"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rE6-9L-P3B"/>
+                                    <outlet property="prefetchDataSource" destination="BYZ-38-t0r" id="DSf-LF-1Be"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLm-Qt-ARA">
+                                <rect key="frame" x="19.000000000000007" y="264" width="90.666666666666686" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="1"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1FL-hm-O6z"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5Z-wz-7Qg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SJG-iK-Mtb">
+                                <rect key="frame" x="162" y="264" width="88.666666666666657" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="2"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5C-5D-2yn"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Eb-eO-Yqj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ABC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGB-5R-Dqf">
+                                <rect key="frame" x="189" y="321" width="37" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tg-Zs-B0y">
+                                <rect key="frame" x="303" y="264" width="90.666666666666686" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="3"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QFV-3Y-6bv"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="csX-rx-fxe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DEF" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4r-LT-6yW">
+                                <rect key="frame" x="332" y="321" width="32.666666666666686" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmQ-al-i6d">
+                                <rect key="frame" x="19.000000000000007" y="371" width="90.666666666666686" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="4"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J7I-uo-eDM"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xzV-Ph-vvZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GHI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXL-xH-IUo">
+                                <rect key="frame" x="48.999999999999993" y="429" width="30.666666666666664" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7OR-0L-SJW">
+                                <rect key="frame" x="162" y="371" width="88.666666666666657" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="5"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cCk-RW-W6I"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AOj-52-MAq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JKL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2S-EU-Lv1">
+                                <rect key="frame" x="192" y="429" width="31" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVZ-Jp-6uM">
+                                <rect key="frame" x="303" y="371" width="90.666666666666686" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="6"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vpo-Jn-X7o"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fiw-qG-1Rz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MNO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCG-LW-yk8">
+                                <rect key="frame" x="328" y="429" width="40.666666666666686" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9n-ri-yhi">
+                                <rect key="frame" x="19.000000000000007" y="472" width="90.666666666666686" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="7"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IaY-tJ-71c"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qOE-X6-yR5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PQRS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ex5-DZ-Wff">
+                                <rect key="frame" x="42" y="531" width="44.666666666666657" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDM-mr-ymB">
+                                <rect key="frame" x="162" y="472" width="88.666666666666657" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="8"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bzh-SP-iIb"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZHP-37-YL7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TUV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sC9-VW-Uv7">
+                                <rect key="frame" x="190" y="531" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwX-9m-udD">
+                                <rect key="frame" x="303" y="472" width="90.666666666666686" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="9"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NgK-Xd-uAK"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lxk-dc-t5l"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WXYZ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br5-1P-onZ">
+                                <rect key="frame" x="324" y="531" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTj-fv-kpe">
+                                <rect key="frame" x="19.000000000000007" y="573" width="90.666666666666686" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="*"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X68-Gn-j3C"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rsx-Ut-b0J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajB-7Q-H1V">
+                                <rect key="frame" x="162" y="573" width="88.666666666666657" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="0"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hfC-Fs-pkI"/>
+                                    <action selector="btnLongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="moJ-LH-guA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhF-ZU-slZ">
+                                <rect key="frame" x="303" y="573" width="90.666666666666686" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="#"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rsq-FO-1oy"/>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vGe-gg-EHl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chZ-Yo-DHa">
+                                <rect key="frame" x="199" y="627" width="15.333333333333343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqy-cl-w70">
+                                <rect key="frame" x="320" y="778" width="50" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" backgroundImage="delete"/>
+                                <connections>
+                                    <action selector="btTypePhoneNumberAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qz8-pD-ZNY"/>
+                                    <action selector="btnDeleteAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pYt-3U-aGS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="din-m8-2KV">
+                                <rect key="frame" x="162" y="761" width="100" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" backgroundImage="call"/>
+                                <connections>
+                                    <action selector="btnCallAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zE2-cW-qTY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="X9X-2Y-f83" firstAttribute="leading" secondItem="A9a-dj-6am" secondAttribute="leading" id="3cJ-Zb-SgH"/>
-                            <constraint firstItem="A9a-dj-6am" firstAttribute="trailing" secondItem="fvC-DD-NlJ" secondAttribute="trailing" id="7oP-Ad-ltx"/>
-                            <constraint firstItem="Sz4-Gv-hgv" firstAttribute="leading" secondItem="A9a-dj-6am" secondAttribute="leading" id="RKu-ln-f1T"/>
-                            <constraint firstItem="Sz4-Gv-hgv" firstAttribute="bottom" secondItem="A9a-dj-6am" secondAttribute="bottom" constant="34" id="eOj-f1-HYW"/>
-                            <constraint firstItem="A9a-dj-6am" firstAttribute="trailing" secondItem="Sz4-Gv-hgv" secondAttribute="trailing" id="mTF-vh-u0s"/>
-                            <constraint firstItem="A9a-dj-6am" firstAttribute="top" secondItem="X9X-2Y-f83" secondAttribute="top" constant="44" id="p54-OK-pa5"/>
-                            <constraint firstItem="fvC-DD-NlJ" firstAttribute="top" secondItem="X9X-2Y-f83" secondAttribute="bottom" constant="-2" id="pGI-07-oCh"/>
-                            <constraint firstItem="fvC-DD-NlJ" firstAttribute="leading" secondItem="A9a-dj-6am" secondAttribute="leading" id="pXR-LJ-dVx"/>
-                            <constraint firstItem="A9a-dj-6am" firstAttribute="trailing" secondItem="X9X-2Y-f83" secondAttribute="trailing" id="yIi-D0-Qlh"/>
-                            <constraint firstItem="Sz4-Gv-hgv" firstAttribute="top" secondItem="fvC-DD-NlJ" secondAttribute="bottom" constant="-1" id="yes-8t-tVL"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="A9a-dj-6am"/>
                     </view>
                     <navigationItem key="navigationItem" id="fBG-Ui-bMl"/>
-                    <connections>
-                        <outlet property="btn1" destination="T0g-NC-LBp" id="d3o-uk-bR9"/>
-                        <outlet property="btn2" destination="6YF-7p-KZu" id="lo5-nD-Y7C"/>
-                        <outlet property="btn3" destination="kNN-2r-3KF" id="Gy3-K8-ZNw"/>
-                        <outlet property="btn4" destination="LnQ-fy-ale" id="OW5-0S-mXD"/>
-                        <outlet property="btn5" destination="4xO-mz-1Uj" id="yd4-kB-bq7"/>
-                        <outlet property="btn6" destination="2Jb-lg-iGZ" id="c1k-5b-HHM"/>
-                        <outlet property="btn7" destination="yiW-1h-pi6" id="hlL-zo-haw"/>
-                        <outlet property="btn8" destination="STO-CQ-fza" id="XXw-KH-186"/>
-                        <outlet property="btn9" destination="Sa1-94-Elo" id="NRO-Mr-lxO"/>
-                        <outlet property="btnCall" destination="1UJ-Kd-2SB" id="Y6t-Eg-98w"/>
-                        <outlet property="btnDeleteOutlet" destination="uh2-CM-Z9R" id="JJ9-Jz-68t"/>
-                        <outlet property="btnHash" destination="MUh-s2-gaZ" id="2RZ-0F-iQb"/>
-                        <outlet property="btnLongPressed" destination="Qcz-el-cXa" id="1rN-Ih-U5K"/>
-                        <outlet property="btnStar" destination="JMx-Np-cLY" id="ZI6-4m-eLd"/>
-                        <outlet property="tableView" destination="9hR-Vl-QYM" id="Jb1-h6-ypf"/>
-                        <outlet property="tfNumberOutlet" destination="4xE-El-LG3" id="03R-VX-bFW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="nPu-2Z-AYC">

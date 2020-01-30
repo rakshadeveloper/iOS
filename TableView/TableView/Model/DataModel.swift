@@ -7,17 +7,14 @@
 //
 
 import Foundation
-class State: Codable {
-    let state: String
-    let districts: [String]
-
-    enum CodingKeys: String, CodingKey {
-        case state
-        case districts
+struct DataModel {
+    var states: String = ""
+    var dist: String = ""
+    
+    init() {
+        
     }
-
-    init(state: String, districts: [String]) {
-        self.state = state
-        self.districts = districts
-    }
+//    init(json: Data) {
+//        states = Data["states"].string
+//    }
 }
