@@ -19,7 +19,10 @@ class CustomCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        imageOutlet.layer.cornerRadius = imageOutlet.frame.width / 15
+        imageOutlet.layer.borderWidth = 2
+        imageOutlet.layer.borderColor = UIColor.black.cgColor
+        imageOutlet.clipsToBounds = true
         // Configure the view for the selected state
     }
     

@@ -16,7 +16,7 @@ struct places {
 
 class ViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
     
-    var StateImages : Array<UIImage> = [UIImage(named: "AndhraPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "Assam.jpg")! , UIImage(named: "Bihar.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! ]
+    var StateImages : Array<UIImage> = [UIImage(named: "AndhraPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "Assam.jpg")! , UIImage(named: "Bihar.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "Goa.jpg")! , UIImage(named: "Gujarat.jpg")! , UIImage(named: "Haryana.jpg")! , UIImage(named: "HimachalPradesh.jpg")! , UIImage(named: "JammuandKashmir.jpg")! , UIImage(named: "Jharkhand.jpg")! , UIImage(named: "Karnataka.jpg")! , UIImage(named: "Kerala.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "MadhyaPradesh.jpg")! , UIImage(named: "Maharashtra.jpg")! , UIImage(named: "Manipur.jpg")! , UIImage(named: "Meghalaya.jpg")! , UIImage(named: "Mizoram.jpg")! , UIImage(named: "Nagaland.jpg")! , UIImage(named: "Odisha.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "Punjab.jpg")! , UIImage(named: "Rajasthan.jpg")! , UIImage(named: "Sikkim.jpg")! , UIImage(named: "TamilNadu.jpg")! , UIImage(named: "Telangana.jpg")! , UIImage(named: "Tripura.jpg")! , UIImage(named: "Uttarakhand.jpg")! , UIImage(named: "UttarPradesh.jpg")! , UIImage(named: "WestBengal.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! ]
     var SelectedKey : String = ""
     var cityArray = [places]()
     var StateArray = Array<String>()
@@ -36,13 +36,13 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexth: IndexPath) -> CGFloat {
-        return 150
+        return 180
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if StateArray.count != 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! CustomCell
-            cell.lbTextOnCellOutlet.text = "\(StateArray[indexPath.row])"
+            cell.lbTextOnCellOutlet.text = "\(indexPath.row) \(StateArray[indexPath.row])"
             cell.imageOutlet.image = StateImages[indexPath.row]
             return cell
         }
