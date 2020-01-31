@@ -16,10 +16,11 @@ struct places {
 
 class ViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
     
-
+    var StateImages : Array<UIImage> = [UIImage(named: "AndhraPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "Assam.jpg")! , UIImage(named: "Bihar.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! ]
+    var SelectedKey : String = ""
     var cityArray = [places]()
     var StateArray = Array<String>()
-    var arr = [String : String]()
+    var arr = [String : Array<String>]()
 //    var arrdata = [State]()
         var tableArray = ["Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine"]
     
@@ -35,13 +36,14 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexth: IndexPath) -> CGFloat {
-        return 100
+        return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if StateArray.count != 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! CustomCell
-            cell.lbTextOnCellOutlet.text = StateArray[indexPath.row]
+            cell.lbTextOnCellOutlet.text = "\(StateArray[indexPath.row])"
+            cell.imageOutlet.image = StateImages[indexPath.row]
             return cell
         }
         else {
@@ -52,11 +54,21 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let VC = storyboard?.instantiateViewController(identifier: "districts") as! DistrictsViewController
-        
-        
-        
-        performSegue(withIdentifier: "districts", sender: VC)
+//        VC.tableArray1 = arr
+//        VC.key = StateArray[indexPath.row]
+        SelectedKey = StateArray[indexPath.row]
+        VC.key = SelectedKey
+        self.present(VC , animated: true , completion: nil)
+        self.performSegue(withIdentifier: "districts", sender: self)
     }
+//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//
+//           if(segue.identifier == "districts") {
+//            let vc = segue.destination as! DistrictsViewController
+//            vc.key = SelectedKey
+//            self.present(vc , animated: true , completion: nil)
+//           }
+//       }
     
 //    @objc func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
 //
@@ -165,17 +177,19 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
             guard let jData = jsonData else {return}
             do {
                 if let json = try JSONSerialization.jsonObject(with: jData, options: []) as? [String : Any] {
+                    var count = 0
                     if let states = json["states"] as? Array<Dictionary<String, Any>> {
                         for state in states {
-                            print(state["state"]!)
+//                            print(state["state"]!)
+//                            StateArray.removeAll()
                             StateArray.append(state["state"] as! String)
                             if let dist = state["districts"] as? Array<String> {
-                                var count = 0
-                                arr.updateValue("\(dist)", forKey: "\(StateArray[count])")
+//                                print(dist)
+                                arr.updateValue(["\(dist)"], forKey: "\(StateArray[count])")
                                 count += 1
                             }
-                            print(arr)
                         }
+                        
                     }
                 }
             } catch let err {
