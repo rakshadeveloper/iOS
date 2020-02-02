@@ -53,22 +53,17 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let VC = storyboard?.instantiateViewController(identifier: "districts") as! DistrictsViewController
-//        VC.tableArray1 = arr
-//        VC.key = StateArray[indexPath.row]
         SelectedKey = StateArray[indexPath.row]
-        VC.key = SelectedKey
-        self.present(VC , animated: true , completion: nil)
         self.performSegue(withIdentifier: "districts", sender: self)
     }
-//    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//
-//           if(segue.identifier == "districts") {
-//            let vc = segue.destination as! DistrictsViewController
-//            vc.key = SelectedKey
-//            self.present(vc , animated: true , completion: nil)
-//           }
-//       }
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+           if(segue.identifier == "districts") {
+            let vc = segue.destination as! DistrictsViewController
+            vc.key = SelectedKey
+            vc.tableArray1 = arr
+           }
+       }
     
 //    @objc func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
 //
@@ -189,7 +184,7 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
                                 count += 1
                             }
                         }
-                        
+//                        print(arr)
                     }
                 }
             } catch let err {

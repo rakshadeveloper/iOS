@@ -48,7 +48,7 @@
                     <navigationItem key="navigationItem" title="States" id="hGA-Hu-8xb"/>
                     <connections>
                         <outlet property="tableView" destination="WCU-4g-6R5" id="24v-sh-Uzq"/>
-                        <segue destination="SYs-VS-ciT" kind="show" identifier="districts" id="37R-w1-zhi"/>
+                        <segue destination="SYs-VS-ciT" kind="show" identifier="districts" id="jh8-fe-sfH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5j8-Zm-L9J">
-                        <rect key="frame" x="5" y="8" width="441" height="136"/>
+                        <rect key="frame" x="6" y="3" width="439" height="146"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xu-kE-dkh">
                         <rect key="frame" x="17" y="41" width="417" height="70"/>
@@ -29,15 +29,14 @@
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="5j8-Zm-L9J" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="3cD-Yt-6Zh"/>
                 <constraint firstItem="9xu-kE-dkh" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="C9D-DH-F1J"/>
                 <constraint firstItem="9xu-kE-dkh" firstAttribute="centerX" secondItem="njF-e1-oar" secondAttribute="centerX" id="GzM-4A-HGO"/>
-                <constraint firstItem="5j8-Zm-L9J" firstAttribute="centerX" secondItem="njF-e1-oar" secondAttribute="centerX" id="m2b-ZC-5fy"/>
+                <constraint firstItem="5j8-Zm-L9J" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" constant="3" id="IEF-wS-Iyq"/>
+                <constraint firstItem="5j8-Zm-L9J" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="6" id="NWm-jH-FcC"/>
+                <constraint firstItem="5j8-Zm-L9J" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="cMR-2f-F8t"/>
                 <constraint firstItem="9xu-kE-dkh" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" constant="41" id="m36-1y-pAm"/>
-                <constraint firstItem="5j8-Zm-L9J" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="5" id="rWC-Th-H5b"/>
-                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="5j8-Zm-L9J" secondAttribute="trailing" constant="5" id="tFT-PQ-ATZ"/>
                 <constraint firstItem="9xu-kE-dkh" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="17" id="xwa-tU-qZg"/>
-                <constraint firstItem="5j8-Zm-L9J" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" constant="8" id="zv6-cT-OHs"/>
+                <constraint firstItem="5j8-Zm-L9J" firstAttribute="centerX" secondItem="njF-e1-oar" secondAttribute="centerX" id="yhV-hQ-uwI"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

@@ -11,26 +11,26 @@ import UIKit
 class DistrictsViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
     var tableArray1 = [String : Array<String>]()
     var ArrayDist = Array<String>()
-    var key : String = ""
+    var key : String?
     
     // TableView DataSource and Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return ArrayDist.count
-        return 1
+        return ArrayDist.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 //        cell.textLabel?.text = ArrayDist[indexPath.row]
-        cell.textLabel?.text = "hi"
+        
+        cell.textLabel?.text = tableArray1[indexPath.row]
         return cell
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        print(key)
+//        self.ArrayDist.append(tableArray1(value(forKey: "\(key)")))
         print(tableArray1)
     }
 }
