@@ -8,61 +8,49 @@
 
 import UIKit
 
-struct places {
-    var opened = Bool()
-    var states = [String]()
-    var dist = [String]()
-}
-
-class ViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
+class ViewController: UIViewController , UITableViewDataSource , UITableViewDelegate , UICollectionViewDataSource , UICollectionViewDelegate {
     
     var StateImages : Array<UIImage> = [UIImage(named: "AndhraPradesh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "Assam.jpg")! , UIImage(named: "Bihar.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "Chhattisgarh.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "Goa.jpg")! , UIImage(named: "Gujarat.jpg")! , UIImage(named: "Haryana.jpg")! , UIImage(named: "HimachalPradesh.jpg")! , UIImage(named: "JammuandKashmir.jpg")! , UIImage(named: "Jharkhand.jpg")! , UIImage(named: "Karnataka.jpg")! , UIImage(named: "Kerala.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "MadhyaPradesh.jpg")! , UIImage(named: "Maharashtra.jpg")! , UIImage(named: "Manipur.jpg")! , UIImage(named: "Meghalaya.jpg")! , UIImage(named: "Mizoram.jpg")! , UIImage(named: "Nagaland.jpg")! , UIImage(named: "Odisha.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! , UIImage(named: "Punjab.jpg")! , UIImage(named: "Rajasthan.jpg")! , UIImage(named: "Sikkim.jpg")! , UIImage(named: "TamilNadu.jpg")! , UIImage(named: "Telangana.jpg")! , UIImage(named: "Tripura.jpg")! , UIImage(named: "Uttarakhand.jpg")! , UIImage(named: "UttarPradesh.jpg")! , UIImage(named: "WestBengal.jpg")! , UIImage(named: "ArunachalPradesh.jpg")! ]
+    
     var SelectedKey : String = ""
-    var cityArray = [places]()
+    var SlectedImage : UIImage?
     var StateArray = Array<String>()
-    var arr = [String : Array<String>]()
-//    var arrdata = [State]()
-        var tableArray = ["Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine", "Chesapeake","Albemarle", "Brandywine"]
+    var StateDistDict = [String : Array<String>]()
     
-    //    @IBOutlet weak var favouritsView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if StateArray.count != 0 {
-             return StateArray.count
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var segmentChangeViewOutlet: UISegmentedControl!
+    @IBAction func segmentChangeView(_ sender: Any) {
+        
+        switch segmentChangeViewOutlet.selectedSegmentIndex
+        {
+        case 0:
+            tableView.alpha = 1
+            collectionView.alpha = 0
+        case 1:
+            tableView.alpha = 0
+            collectionView.alpha = 1
+        default:
+            break
         }
-        else {
-            return tableArray.count
-        }
+        
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexth: IndexPath) -> CGFloat {
-        return 180
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if StateArray.count != 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! CustomCell
-            cell.lbTextOnCellOutlet.text = "\(indexPath.row) \(StateArray[indexPath.row])"
-            cell.imageOutlet.image = StateImages[indexPath.row]
-            return cell
-        }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! CustomCell
-            cell.lbTextOnCellOutlet.text = tableArray[indexPath.row]
-            return cell
-        }
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SelectedKey = StateArray[indexPath.row]
-        self.performSegue(withIdentifier: "districts", sender: self)
-    }
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
            if(segue.identifier == "districts") {
             let vc = segue.destination as! DistrictsViewController
             vc.key = SelectedKey
-            vc.tableArray1 = arr
+            vc.StateDistDictionary = StateDistDict
+            vc.image = SlectedImage
+            
            }
+        if(segue.identifier == "places") {
+            let vc = segue.destination as! DistrictsPlacesViewController
+            vc.data = StateArray
+            vc.imagedata = StateImages
+//            vc.StateDistDictionary = StateDistDict
+        }
        }
     
 //    @objc func longPressGestureRecognized(gestureRecognizer: UIGestureRecognizer) {
@@ -156,7 +144,23 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Segment
+        segmentChangeViewOutlet.layer.cornerRadius = segmentChangeViewOutlet.frame.width / 11
+        segmentChangeViewOutlet.layer.borderWidth = 2
+        segmentChangeViewOutlet.layer.borderColor = UIColor.black.cgColor
+        segmentChangeViewOutlet.clipsToBounds = true
+        
+        // TableView and collection View
+        tableView.layer.borderWidth = 2
+        tableView.layer.borderColor = UIColor.systemBlue.cgColor
+        collectionView.layer.borderWidth = 2
+        collectionView.layer.borderColor = UIColor.systemBlue.cgColor
+        
+            // For Segment to change view
+        tableView.alpha = 1
+        collectionView.alpha = 0
+        
+            // For Custom TableViewCell
         tableView.dataSource = self
         tableView.delegate = self
         let nibName = UINib(nibName: "CustomCell", bundle: nil)
@@ -175,21 +179,60 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
                     var count = 0
                     if let states = json["states"] as? Array<Dictionary<String, Any>> {
                         for state in states {
-//                            print(state["state"]!)
-//                            StateArray.removeAll()
                             StateArray.append(state["state"] as! String)
                             if let dist = state["districts"] as? Array<String> {
-//                                print(dist)
-                                arr.updateValue(["\(dist)"], forKey: "\(StateArray[count])")
+                                StateDistDict.updateValue(dist, forKey: "\(StateArray[count])")
                                 count += 1
                             }
                         }
-//                        print(arr)
                     }
                 }
             } catch let err {
                 print(err.localizedDescription)
             }
         }
+    }
+    
+    // Table View Config
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+             return StateArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexth: IndexPath) -> CGFloat {
+        return 180
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath) as! CustomCell
+            cell.lbTextOnCellOutlet.text = "\(StateArray[indexPath.row])"
+            cell.imageOutlet.image = StateImages[indexPath.row]
+        cell.backgroundColor = .clear
+            return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        SelectedKey = StateArray[indexPath.row]
+        SlectedImage = StateImages[indexPath.row]
+        self.performSegue(withIdentifier: "districts", sender: self)
+    }
+    
+    // Collection View Config
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+           return StateArray.count
+       }
+       
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+           let collectionCell: CollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! CollectionViewCell
+           collectionCell.lblOutlet.text = StateArray[indexPath.row]
+           collectionCell.imgOutlet.image = StateImages[indexPath.row]
+           collectionCell.layer.cornerRadius = collectionCell.frame.width / 14
+           collectionCell.layer.borderWidth = 2
+           collectionCell.layer.borderColor = UIColor.black.cgColor
+           collectionCell.clipsToBounds = true
+           return collectionCell
+       }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        SelectedKey = StateArray[indexPath.row]
+        SlectedImage = StateImages[indexPath.row]
+        self.performSegue(withIdentifier: "districts", sender: self)
     }
 }
