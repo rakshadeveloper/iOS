@@ -14,6 +14,7 @@ class DistrictsViewController: UIViewController , UITableViewDataSource , UITabl
     var ArrayDist = Array<String>()
     var key : String!
     var image : UIImage?
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentChangeViewOutlet: UISegmentedControl!
     @IBOutlet weak var tableViewDist: UITableView!
@@ -39,6 +40,11 @@ class DistrictsViewController: UIViewController , UITableViewDataSource , UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Segement
+        segmentChangeViewOutlet.layer.borderWidth = 2
+        segmentChangeViewOutlet.layer.borderColor = UIColor.black.cgColor
+        
+        // TableView and CollectionView set Appear Value and Background
         tableViewDist.alpha = 1
         collectionView.alpha = 0
         collectionView.backgroundView = UIImageView(image: image!)
@@ -79,6 +85,7 @@ class DistrictsViewController: UIViewController , UITableViewDataSource , UITabl
     //        self.performSegue(withIdentifier: "places", sender: nil)
     //    }
     
+    // CollectionView DataSource and Delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return ArrayDist.count
     }
@@ -87,6 +94,9 @@ class DistrictsViewController: UIViewController , UITableViewDataSource , UITabl
          let collectionCell: DistrictsCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! DistrictsCollectionViewCell
         collectionCell.lblDistrictsOutlet.text = ArrayDist[indexPath.row]
         collectionCell.backgroundColor = .clear
+        collectionCell.layer.borderWidth = 2
+        collectionCell.layer.borderColor = UIColor.brown.cgColor
+        collectionCell.layer.cornerRadius = collectionCell.frame.width / 10
         return collectionCell
     }
 }

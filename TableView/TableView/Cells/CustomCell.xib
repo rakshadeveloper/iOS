@@ -24,10 +24,11 @@
                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="10" height="-3"/>
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cyan="0.41840889079999999" magenta="0.4182479831" yellow="0.34214469180000001" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
             <constraints>
                 <constraint firstItem="9xu-kE-dkh" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="C9D-DH-F1J"/>
                 <constraint firstItem="9xu-kE-dkh" firstAttribute="centerX" secondItem="njF-e1-oar" secondAttribute="centerX" id="GzM-4A-HGO"/>

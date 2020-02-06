@@ -151,9 +151,9 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         segmentChangeViewOutlet.clipsToBounds = true
         
         // TableView and collection View
-        tableView.layer.borderWidth = 2
+//        tableView.layer.borderWidth = 2
         tableView.layer.borderColor = UIColor.systemBlue.cgColor
-        collectionView.layer.borderWidth = 2
+//        collectionView.layer.borderWidth = 2
         collectionView.layer.borderColor = UIColor.systemBlue.cgColor
         
             // For Segment to change view
@@ -222,13 +222,17 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
            let collectionCell: CollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! CollectionViewCell
-           collectionCell.lblOutlet.text = StateArray[indexPath.row]
-           collectionCell.imgOutlet.image = StateImages[indexPath.row]
-           collectionCell.layer.cornerRadius = collectionCell.frame.width / 14
-           collectionCell.layer.borderWidth = 2
-           collectionCell.layer.borderColor = UIColor.black.cgColor
-           collectionCell.clipsToBounds = true
-           return collectionCell
+        collectionCell.lblOutlet.text = StateArray[indexPath.row]
+        collectionCell.imgOutlet.image = StateImages[indexPath.row]
+        collectionCell.layer.cornerRadius = collectionCell.frame.width / 14
+        collectionCell.layer.borderWidth = 2
+        collectionCell.layer.borderColor = UIColor.black.cgColor
+        collectionCell.clipsToBounds = true
+        collectionCell.imgOutlet.layer.cornerRadius = collectionCell.imgOutlet.frame.width / 13
+        collectionCell.imgOutlet.layer.borderWidth = 2
+        collectionCell.imgOutlet.layer.borderColor = UIColor.black.cgColor
+        
+        return collectionCell
        }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         SelectedKey = StateArray[indexPath.row]
