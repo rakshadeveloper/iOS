@@ -144,7 +144,6 @@
 				25DB661023EADF49005A57BA /* ViewControllers */,
 				25DB661123EADF77005A57BA /* Storyboards */,
 				25B45BA423CDB2210043044A /* Assets.xcassets */,
-				25B45BA623CDB2210043044A /* LaunchScreen.storyboard */,
 				25B45BA923CDB2210043044A /* Info.plist */,
 			);
 			path = TableView;
@@ -204,6 +203,7 @@
 		25DB661123EADF77005A57BA /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				25B45BA623CDB2210043044A /* LaunchScreen.storyboard */,
 				25B45BA123CDB21C0043044A /* Main.storyboard */,
 			);
 			path = Storyboards;

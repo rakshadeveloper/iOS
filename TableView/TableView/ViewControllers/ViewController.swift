@@ -16,7 +16,8 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     var SlectedImage : UIImage?
     var StateArray = Array<String>()
     var StateDistDict = [String : Array<String>]()
-    
+    var grid  = UserDefaults.standard.set(true, forKey: "grid")
+    var list = UserDefaults.standard.set(true, forKey: "list")
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentChangeViewOutlet: UISegmentedControl!

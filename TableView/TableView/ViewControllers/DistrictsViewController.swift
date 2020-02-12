@@ -91,7 +91,7 @@ class DistrictsViewController: UIViewController , UITableViewDataSource , UITabl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-         let collectionCell: DistrictsCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! DistrictsCollectionViewCell
+        let collectionCell: DistrictsCollectionViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! DistrictsCollectionViewCell
         collectionCell.lblDistrictsOutlet.text = ArrayDist[indexPath.row]
         collectionCell.backgroundColor = .clear
         collectionCell.layer.borderWidth = 2
