@@ -10,45 +10,49 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController , CLLocationManagerDelegate {
-
-    @IBOutlet weak var mapView: MKMapView!
-    // set initial location in Lucknnow
-    var lat : CLLocationDegrees?
-    var long : CLLocationDegrees?
-    let initialLocation = CLLocation(latitude: 26.8467, longitude: 80.9462)
-    var newlocation : CLLocationCoordinate2D? = nil
+class ViewController: UIViewController , CLLocationManagerDelegate , MKMapViewDelegate {
+    
+    @IBOutlet weak var mapView : MKMapView!
+   
     let locationManager = CLLocationManager()
-    let regionRadius: CLLocationDistance = 1000
-    func centerMapOnLocation(location: CLLocation) {
-        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
-                                                  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
-      mapView.setRegion(coordinateRegion, animated: true)
-    }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        centerMapOnLocation(location: initialLocation)
-        locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
+        mapView.delegate = self
+        mapView.mapType = .standard
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
+
+        if let coor = mapView.userLocation.location?.coordinate{
+            mapView.setCenter(coor, animated: true)
+        }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
-        lat = locValue.latitude
-        long = locValue.longitude
-        newlocation = locValue
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+
+        mapView.mapType = MKMapType.standard
+
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: locValue, span: span)
+        mapView.setRegion(region, animated: true)
+
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = locValue
+        annotation.title = "You are Here"
+//        annotation.subtitle = "current location"
+        mapView.addAnnotation(annotation)
     }
-
-
+    
 }
 
