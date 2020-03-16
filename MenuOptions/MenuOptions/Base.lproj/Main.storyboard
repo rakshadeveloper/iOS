@@ -51,6 +51,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="394-s0-Ude">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FbH-n6-D5a">
                                 <rect key="frame" x="-200" y="88" width="200" height="788"/>
                                 <subviews>
@@ -74,13 +78,21 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="FbH-n6-D5a" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="88" id="55I-gy-Z9b"/>
+                            <constraint firstItem="394-s0-Ude" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D7j-gw-BKm"/>
+                            <constraint firstItem="394-s0-Ude" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="ZnW-Hl-KfC"/>
+                            <constraint firstItem="394-s0-Ude" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nqM-Y9-Dzv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="394-s0-Ude" secondAttribute="trailing" id="pec-A6-CqS"/>
                             <constraint firstItem="FbH-n6-D5a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vE0-hM-i0K"/>
                             <constraint firstAttribute="bottom" secondItem="FbH-n6-D5a" secondAttribute="bottom" id="xi9-MT-Kt2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="24J-eu-YeQ" appends="YES" id="vvS-CD-Fzr"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Osq-Xz-E6i">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="3jN-oC-SyU">
@@ -93,9 +105,15 @@
                         <outlet property="LeadingContraint" destination="vE0-hM-i0K" id="eD4-u5-SVf"/>
                         <outlet property="mainView" destination="8bC-Xf-vdC" id="KBo-LP-SrD"/>
                         <outlet property="menuView" destination="FbH-n6-D5a" id="TFL-Ym-dCI"/>
+                        <outlet property="transparentView" destination="394-s0-Ude" id="iMP-V6-asG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="24J-eu-YeQ">
+                    <connections>
+                        <outlet property="delegate" destination="8bC-Xf-vdC" id="BbL-OK-4dF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2868.115942028986" y="126.5625"/>
         </scene>
