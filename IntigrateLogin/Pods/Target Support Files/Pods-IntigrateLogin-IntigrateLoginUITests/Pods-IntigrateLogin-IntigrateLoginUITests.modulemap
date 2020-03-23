@@ -1,0 +1,6 @@
+framework module Pods_IntigrateLogin_IntigrateLoginUITests {
+  umbrella header "Pods-IntigrateLogin-IntigrateLoginUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

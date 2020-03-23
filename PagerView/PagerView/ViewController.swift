@@ -13,7 +13,7 @@ class ViewController: UIViewController , UIScrollViewDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    var movies: [String] = ["bad-boys","joker","hollywood"]
+    var movies: [String] = ["bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood","bad-boys","joker","hollywood"]
     var frame = CGRect.zero
     
     override func viewDidLoad() {

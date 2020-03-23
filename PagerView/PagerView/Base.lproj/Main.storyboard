@@ -16,13 +16,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lM6-jc-32o">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="uqf-no-OXv"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Id8-KW-lwL"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="3DL-fI-cVo"/>
+                                </connections>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DD4-fF-Z7g">
-                                <rect key="frame" x="0.0" y="825" width="414" height="37"/>
+                                <rect key="frame" x="20" y="839" width="374" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
                         </subviews>
